@@ -8,7 +8,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Scene escena = new Scene(new PanelPrincipal(),500,700);
+        Scene escena = new Scene(new PanelPrincipal(),1200,800);
         stage.setScene(escena);
         stage.show();
         Personaje pj = Personaje.getPers();

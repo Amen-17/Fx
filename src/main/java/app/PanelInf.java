@@ -4,8 +4,6 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PanelInf extends HBox {

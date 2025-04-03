@@ -15,7 +15,7 @@ public class Personaje extends Rectangle {
     private static Bounds posPj;
 
     public Personaje() {
-        super(220, 600, 20, 20); //Posicion X, Posicion Y, Tamaño X, Tamaño Y
+        super(550, 350, 20, 20); //Posicion X, Posicion Y, Tamaño X, Tamaño Y
         panel = PanelJuego.getPanel(); //Para enlazar el jugador con el panel
         setFill(Color.CHOCOLATE); //Color
         ponerEnAccion();
@@ -87,6 +87,7 @@ public class Personaje extends Rectangle {
         scene.setOnMouseClicked(e -> {
             if (e.getButton() == MouseButton.PRIMARY) {
                 disparar();
+
             }
         });
     }
