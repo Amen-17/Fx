@@ -70,9 +70,9 @@ public class Personaje extends Rectangle {
     public void rotacionRaton(Scene scene) {
         scene.setOnMouseMoved(e -> {
             // Obtener la posición absoluta del personaje en la escena
-            Bounds bounds = this.localToScene(this.getBoundsInLocal());
-            double personajeX = bounds.getMinX() + bounds.getWidth() / 2;
-            double personajeY = bounds.getMinY() + bounds.getHeight() / 2;
+            Bounds posPJAct = this.localToScene(this.getBoundsInLocal());
+            double personajeX = posPJAct.getMinX() + posPJAct.getWidth() / 2;
+            double personajeY = posPJAct.getMinY() + posPJAct.getHeight() / 2;
 
             // Obtener la posición del ratón
             double mouseX = e.getX();
@@ -87,7 +87,6 @@ public class Personaje extends Rectangle {
         scene.setOnMouseClicked(e -> {
             if (e.getButton() == MouseButton.PRIMARY) {
                 disparar();
-
             }
         });
     }

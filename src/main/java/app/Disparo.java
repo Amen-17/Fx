@@ -16,17 +16,15 @@ public class Disparo extends Rectangle {
 
     public Disparo(double poX, double poY, double angulo){
         super(poX-2,poY-15,2,15);
-        setRotate(angulo+90);
-        System.out.println(angulo);
+        setRotate(angulo+90); //No se porque pero hay que añadirle 90º para que salga 'bien'
         panel = PanelJuego.getPanel();
         enPantalla = true;
         setFill(Color.RED);
         subir();
         nDisparos++;
-        double radianes = Math.toRadians(angulo);
         velocidad = 4;
-        dirX = Math.cos(radianes) * velocidad;
-        dirY = Math.sin(radianes) * velocidad;
+        dirX = Math.cos(Math.toRadians(angulo)) * velocidad;
+        dirY = Math.sin(Math.toRadians(angulo)) * velocidad;
     }
     private void subir(){
         t = new AnimationTimer() {
@@ -34,10 +32,9 @@ public class Disparo extends Rectangle {
             public void handle(long l) {
                 setLayoutY(getLayoutY()+dirY);
                 setLayoutX(getLayoutX()+dirX);
-                if (getBoundsInParent().getMaxY() <= 0 ||
-                        getBoundsInParent().getMinY() >= panel.getHeight() ||
-                        getBoundsInParent().getMaxX() <= 0 ||
-                        getBoundsInParent().getMinX() >= panel.getWidth()) {
+                //Si sale por cualquiera de los 4 bordes
+                if (getBoundsInParent().getMaxY() <= 0 || getBoundsInParent().getMinY() >= panel.getHeight() ||
+                        getBoundsInParent().getMaxX() <= 0 || getBoundsInParent().getMinX() >= panel.getWidth()) {
                     enPantalla = false;
                 }
 
