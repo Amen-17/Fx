@@ -17,18 +17,18 @@ public class Disparo extends Rectangle {
 
     public Disparo(double poX, double poY, double angulo,boolean prop){
         super(poX-2,poY-15,2,15);
-        setRotate(angulo+90); //No se porque pero hay que añadirle 90º para que salga 'bien'
+        setRotate(angulo+90); //Hay que añadirle 90º debido a que el angulo 0º es hacía la derecha.
         panel = PanelJuego.getPanel();
         propietario = prop;
         enPantalla = true;
         setFill(Color.RED);
-        subir();
+        trayectoria();
         nDisparos++;
         velocidad = 4;
         dirX = Math.cos(Math.toRadians(angulo)) * velocidad;
         dirY = Math.sin(Math.toRadians(angulo)) * velocidad;
     }
-    private void subir(){
+    private void trayectoria(){
         t = new AnimationTimer() {
             @Override
             public void handle(long l) {
@@ -61,12 +61,26 @@ public class Disparo extends Rectangle {
                     nDisparos--;
                     panel.getChildren().remove(Disparo.this); //Para especificar que queremos borrar el objeto, no el AnimationTimer.
                 }
+                comprobarColision();
             }
         };
         t.start();
     }
+    //Comprueba que la bala enemiga impacta en mí, pero no se bien como implementarla ni donde.
+    public void comprobarColision(){
+        if (getBoundsInParent().intersects(Personaje.getPos()) && !propietario){
+            this.getAnimation().stop();
+            System.out.println("Te ha dado una bala");
+            panel.getChildren().remove(Disparo.this);
+            Vida.reducirVida();
+        }
+    }
 
     public static int getnDisparos() {
         return nDisparos;
+    }
+
+    public AnimationTimer getAnimation(){
+        return t;
     }
 }

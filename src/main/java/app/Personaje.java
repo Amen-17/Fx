@@ -27,6 +27,9 @@ public class Personaje extends Rectangle {
         return pers;
     }
 
+    /**
+     * Pone al personaje en foco y captura las teclas que se pulsan y se dejan de pulsar.
+     */
     private void ponerEnAccion() {
         sceneProperty().addListener((observar, antigua, nueva) //Pone el foco a esta clase
                 -> {
@@ -67,12 +70,14 @@ public class Personaje extends Rectangle {
         });
     }
 
-    public  void rotacionRaton(Scene scene) {
+    /**
+     *
+     * @param scene
+     */
+    public void rotacionRaton(Scene scene) {
         scene.setOnMouseMoved(e -> {
-            // Obtener la posición absoluta del personaje en la escena
-            Bounds posPJAct = this.localToScene(this.getBoundsInLocal());
-            double personajeX = posPJAct.getMinX() + posPJAct.getWidth() / 2;
-            double personajeY = posPJAct.getMinY() + posPJAct.getHeight() / 2;
+            double personajeX = posPj.getMinX() + posPj.getWidth() / 2;
+            double personajeY = posPj.getMinY() + posPj.getHeight() / 2;
 
             // Obtener la posición del ratón
             double mouseX = e.getX();
@@ -93,13 +98,12 @@ public class Personaje extends Rectangle {
 
     private void disparar(){
         if (Disparo.getnDisparos() < 10){ //Limitamos el numero de disparos a 5
-            Bounds posPJ = this.getBoundsInParent();
             //Angulo actual
             double angulo = getRotate();
             double radio = posPj.getHeight() / 2; // Distancia desde el centro a la parte superior
             double anguloRad = Math.toRadians(angulo);
             //Posicion X
-            double disparoX = posPJ.getCenterX() + Math.cos(anguloRad) * radio;
+            double disparoX = posPj.getCenterX() + Math.cos(anguloRad) * radio;
             //Posicion Y
             double disparoY = posPj.getCenterY() + Math.sin(anguloRad) * radio;
             Disparo d = new Disparo(disparoX,disparoY,angulo,true);
@@ -128,7 +132,7 @@ public class Personaje extends Rectangle {
             @Override
             public void handle(long l) {
                 movimiento();
-                posPj = getBoundsInParent();
+                posPj = Personaje.this.localToScene(Personaje.this.getBoundsInLocal());
             }
         };
         t.start(); // Siempre que haga un AnimationTimer he de empezarlo, si no no hace caso.

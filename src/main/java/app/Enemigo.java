@@ -36,21 +36,23 @@ public abstract class Enemigo extends Rectangle {
     }
 
     protected void comprobarMuerte() {
-        if (localToScene(getBoundsInLocal()).intersects(Personaje.getPers().localToScene(Personaje.getPers().getBoundsInLocal()))) {
-            System.out.println("Posicion enemigo: " + getBoundsInParent().getMaxY() + " " + getBoundsInParent().getMaxX() + " posicion pj: " + Personaje.getPos().getMaxY() + " " + Personaje.getPos().getMaxX());
+        if (localToScene(getBoundsInLocal()).intersects(Personaje.getPos())) {
+            if (this instanceof EnemigoArquero){
+                System.out.println("soy un arquero");
+            }
+            else System.out.println("no soy un arquero");
             panel.getChildren().remove(this);//Borramos el enemigo
             GestorEnemigos.getLista().remove(this);//Borramos de la lista los que se salen de la pantalla
             Vida.reducirVida(); //Nos quitan una vida
-            System.out.println("Te han quitado una vida");
             t.stop(); //Paramos su animación
         }
     }
     // Mejorar todas las variables que he hecho
     protected void atacar() {
         // Obtener la posición absoluta del personaje en la escena
-        Bounds bounds = Personaje.getPers().localToScene(Personaje.getPers().getBoundsInLocal());
-        double personajeX = bounds.getMinX() + bounds.getWidth() / 2;
-        double personajeY = bounds.getMinY() + bounds.getHeight() / 2;
+        Bounds posPJ = Personaje.getPos();
+        double personajeX = posPJ.getMinX() + posPJ.getWidth() / 2;
+        double personajeY = posPJ.getMinY() + posPJ.getHeight() / 2;
 
         // Obtener la posición del enemigo
         Bounds posEneAct = localToScene(getBoundsInLocal());
@@ -75,10 +77,10 @@ public abstract class Enemigo extends Rectangle {
     // Mejorar todas las variables que he hecho
     protected void rotar(){
 
-        Bounds bounds = Personaje.getPers().localToScene(Personaje.getPers().getBoundsInLocal());
+        Bounds posPj = Personaje.getPos();
         Bounds posEneAct = localToScene(getBoundsInLocal());
-        double personajeX = bounds.getMinX() + bounds.getWidth() / 2;
-        double personajeY = bounds.getMinY() + bounds.getHeight() / 2;
+        double personajeX = posPj.getMinX() + posPj.getWidth() / 2;
+        double personajeY = posPj.getMinY() + posPj.getHeight() / 2;
         double enemigoX = posEneAct.getCenterX();
         double enemigoY = posEneAct.getCenterY();
 

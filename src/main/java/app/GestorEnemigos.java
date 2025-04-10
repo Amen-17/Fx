@@ -21,11 +21,11 @@ public class GestorEnemigos {
                 if (l - tAnter >= tApar) {//Hace que aparezca un enemigo cada 2 segundos, comparando el tiempo actual con el anterior.
                     Enemigo e = obtenerEneAle();
                     //Hay que cambiar la frecuencia según la dificultad
-                    if (l % 2 == 0){
-                        Enemigo a = new EnemigoArquero();
-                        lista.add(a);//Almacenamos todos los enemigos en una lista.
-                        panel.getChildren().add(a);
-                    }
+//                    if (l % 2 == 0){
+//                        Enemigo a = new EnemigoArquero();
+//                        lista.add(a);//Almacenamos todos los enemigos en una lista.
+//                        panel.getChildren().add(a);
+//                    }
                     lista.add(e);//Almacenamos todos los enemigos en una lista.
                     panel.getChildren().add(e);
                     tAnter = l;
@@ -45,15 +45,36 @@ public class GestorEnemigos {
 
     private static Enemigo obtenerEneAle(){
         int ale = (int) (Math.random()*4+1);
+        int ale2 = (int) (Math.random()*2+1);
         switch (ale){
             case 1:
-                return new EnemigoComun(Math.random()*1150, -50);
+                if (ale2 == 1){
+                    return new EnemigoComun(Math.random()*1150, -50);
+                }
+                else {
+                    return new EnemigoArquero(Math.random()*1150, -50);
+                }
             case 2:
-                return new EnemigoComun(Math.random()*1150, 800);
+                if (ale2 == 1){
+                    return new EnemigoComun(Math.random()*1150, 800);
+                }
+                else {
+                    return new EnemigoArquero(Math.random()*1150, 800);
+                }
             case 3:
-                return new EnemigoComun(-50, Math.random()*800);
+                if (ale2 == 1){
+                    return new EnemigoComun(-50, Math.random()*800);
+                }
+                else {
+                    return new EnemigoArquero(-50, Math.random()*800);
+                }
             case 4:
-                return new EnemigoComun(1200, Math.random()*800);
+                if (ale2 == 1){
+                    return new EnemigoComun(1200, Math.random()*800);
+                }
+                else {
+                    return new EnemigoArquero(1200, Math.random()*800);
+                }
         }
         return null;
     }

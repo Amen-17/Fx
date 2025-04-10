@@ -1,10 +1,10 @@
 package app;
 
 import javafx.animation.AnimationTimer;
-import javafx.geometry.Bounds;
 import javafx.scene.paint.Color;
 
 public class EnemigoComun extends Enemigo{
+
 
     public EnemigoComun() {
         super(Math.random()*1150, -50, 50, 50, 1, (Math.random()*2)*dificultad);
