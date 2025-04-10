@@ -13,11 +13,13 @@ public class Disparo extends Rectangle {
     private static int nDisparos=0;
     private double dirX,dirY;
     private int velocidad;
+    boolean propietario; //True si es del personaje, false si son de enemigos.
 
-    public Disparo(double poX, double poY, double angulo){
+    public Disparo(double poX, double poY, double angulo,boolean prop){
         super(poX-2,poY-15,2,15);
         setRotate(angulo+90); //No se porque pero hay que añadirle 90º para que salga 'bien'
         panel = PanelJuego.getPanel();
+        propietario = prop;
         enPantalla = true;
         setFill(Color.RED);
         subir();
@@ -42,9 +44,10 @@ public class Disparo extends Rectangle {
 
                 for (int cont=0; cont < lista.size();cont++){
                     Enemigo e = lista.get(cont);
-                    if (getBoundsInParent().intersects(e.getBoundsInParent())){ //Si las colisiones chocan
+                    if (getBoundsInParent().intersects(e.getBoundsInParent()) && propietario){ //Si las colisiones chocan y la bala es lanzada por el usuario
                         enPantalla = false;
                         e.reducirVida();
+                        System.out.println("Has dado un disparo");
                         if (e.getVida() <=0){ //Si el enemigo se queda sin vida se para su animación, se borra del panel y del array list
                             e.getAnimation().stop();
                             panel.getChildren().remove(e);

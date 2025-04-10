@@ -67,7 +67,7 @@ public class Personaje extends Rectangle {
         });
     }
 
-    public void rotacionRaton(Scene scene) {
+    public  void rotacionRaton(Scene scene) {
         scene.setOnMouseMoved(e -> {
             // Obtener la posición absoluta del personaje en la escena
             Bounds posPJAct = this.localToScene(this.getBoundsInLocal());
@@ -92,7 +92,7 @@ public class Personaje extends Rectangle {
     }
 
     private void disparar(){
-        if (Disparo.getnDisparos() < 5){ //Limitamos el numero de disparos a 5
+        if (Disparo.getnDisparos() < 10){ //Limitamos el numero de disparos a 5
             Bounds posPJ = this.getBoundsInParent();
             //Angulo actual
             double angulo = getRotate();
@@ -102,7 +102,7 @@ public class Personaje extends Rectangle {
             double disparoX = posPJ.getCenterX() + Math.cos(anguloRad) * radio;
             //Posicion Y
             double disparoY = posPj.getCenterY() + Math.sin(anguloRad) * radio;
-            Disparo d = new Disparo(disparoX,disparoY,angulo);
+            Disparo d = new Disparo(disparoX,disparoY,angulo,true);
             //Agregar el disparo a la pantalla
             panel.getChildren().add(d);
         }

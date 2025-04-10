@@ -17,17 +17,30 @@ public class GestorEnemigos {
         t = new AnimationTimer() {
             @Override
             public void handle(long l) {
-                if (tApar >= 500_000_000) tApar -= 10_000;
+                if (tApar >= 500_000_000){ tApar -= 10_000;}
                 if (l - tAnter >= tApar) {//Hace que aparezca un enemigo cada 2 segundos, comparando el tiempo actual con el anterior.
                     Enemigo e = obtenerEneAle();
+                    //Hay que cambiar la frecuencia según la dificultad
+                    if (l % 2 == 0){
+                        Enemigo a = new EnemigoArquero();
+                        lista.add(a);//Almacenamos todos los enemigos en una lista.
+                        panel.getChildren().add(a);
+                    }
                     lista.add(e);//Almacenamos todos los enemigos en una lista.
                     panel.getChildren().add(e);
                     tAnter = l;
-                    obtenerEneAle();
                 }
             }
         };
         t.start();
+    }
+    //Esto es una prueba, no creo que continue
+    public static void comenzar(int a){
+        lista = new ArrayList<>();
+        panel = PanelJuego.getPanel();
+        Enemigo e = new EnemigoArquero();
+        lista.add(e);//Almacenamos todos los enemigos en una lista.
+        panel.getChildren().add(e);
     }
 
     private static Enemigo obtenerEneAle(){
