@@ -15,6 +15,16 @@ public abstract class Enemigo extends Rectangle {
     protected static double dificultad = 0;
     protected int puntuacion;
 
+    /**
+     * Constructor de Enemigo
+     * @param poX Posición X de spawn
+     * @param poY Posición Y de spawn
+     * @param tamX Tamaño X
+     * @param tamY Tamaño Y
+     * @param vida Puntos de vida
+     * @param velocidad Velocidad de movimiento
+     * La dificultad aumenta según la generación de enemigos hasta llegar a 1.
+     */
     public Enemigo(double poX, double poY, double tamX, double tamY, int vida, double velocidad) {
         super(poX, poY, tamX, tamY);
         this.vida = vida;
@@ -23,18 +33,9 @@ public abstract class Enemigo extends Rectangle {
         if (dificultad <= 1) dificultad += 0.01;
     }
 
-    public int getVida() {
-        return vida;
-    }
-
-    public void reducirVida() {
-        vida--;
-    }
-
-    public AnimationTimer getAnimation() {
-        return t;
-    }
-
+    /**
+     * Comprueba si el Enemigo ha muerto mediante colisión contra el Personaje
+     */
     protected void comprobarMuerte() {
         if (localToScene(getBoundsInLocal()).intersects(Personaje.getPos())) {
             if (this instanceof EnemigoArquero){
@@ -47,6 +48,10 @@ public abstract class Enemigo extends Rectangle {
             t.stop(); //Paramos su animación
         }
     }
+
+    /**
+     * Se mueve hacia la posición del Personaje, calcula la diferencia de posiciones y el trayecto hacía el.
+     */
     // Mejorar todas las variables que he hecho
     protected void atacar() {
         // Obtener la posición absoluta del personaje en la escena
@@ -59,9 +64,11 @@ public abstract class Enemigo extends Rectangle {
         double enemigoX = posEneAct.getCenterX();
         double enemigoY = posEneAct.getCenterY();
 
-        // Calcular la dirección
+        //Calcula la diferencia entre las coordenanas X e Y
         double deltaX = personajeX - enemigoX;
         double deltaY = personajeY - enemigoY;
+
+        // Calcula la distancia mediante el calculo de la hipotenusa.
         double distancia = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
 
         // Normalizar el vector para que la velocidad sea constante
@@ -74,6 +81,10 @@ public abstract class Enemigo extends Rectangle {
         //Obtiene la posicion del enemigo y comprueba si se choca con el personaje.
         comprobarMuerte();
     }
+
+    /**
+     * Rota su eje en base a la posición del Personaje
+     */
     // Mejorar todas las variables que he hecho
     protected void rotar(){
 
@@ -93,5 +104,17 @@ public abstract class Enemigo extends Rectangle {
 
         // Aplicar la rotación al enemigo
         setRotate(anguloGrados);
+    }
+
+    public AnimationTimer getAnimation() {
+        return t;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void reducirVida() {
+        vida--;
     }
 }

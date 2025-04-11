@@ -23,18 +23,26 @@ public class Disparo extends Rectangle {
         enPantalla = true;
         setFill(Color.RED);
         trayectoria();
-        nDisparos++;
+        if (prop) nDisparos++; //Solo contamos los disparos si son del Personaje
         velocidad = 4;
         dirX = Math.cos(Math.toRadians(angulo)) * velocidad;
         dirY = Math.sin(Math.toRadians(angulo)) * velocidad;
     }
+
+    /**
+     * Primero de todo, no se asusten.
+     * Este método lo único que hace es:
+     * > Mover la bala
+     * > Comprobar si la bala choca contra cualquier enemigo almacenado en la lista.
+     * > Si se sale la bala de la pantalla la elimina
+     */
     private void trayectoria(){
         t = new AnimationTimer() {
             @Override
             public void handle(long l) {
                 setLayoutY(getLayoutY()+dirY);
                 setLayoutX(getLayoutX()+dirX);
-                //Si sale por cualquiera de los 4 bordes
+                //Si sale por cualquiera de los 4 bordes.
                 if (getBoundsInParent().getMaxY() <= 0 || getBoundsInParent().getMinY() >= panel.getHeight() ||
                         getBoundsInParent().getMaxX() <= 0 || getBoundsInParent().getMinX() >= panel.getWidth()) {
                     enPantalla = false;
@@ -67,6 +75,10 @@ public class Disparo extends Rectangle {
         t.start();
     }
     //Comprueba que la bala enemiga impacta en mí, pero no se bien como implementarla ni donde.
+
+    /**
+     *
+     */
     public void comprobarColision(){
         if (getBoundsInParent().intersects(Personaje.getPos()) && !propietario){
             this.getAnimation().stop();

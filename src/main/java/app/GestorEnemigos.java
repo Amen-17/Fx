@@ -11,38 +11,36 @@ public class GestorEnemigos {
     private static long tAnter;
     private static ArrayList<Enemigo> lista;
 
+    /**
+     * Comienza la generación de enemigos cada 2 segundos, lo agrega al panel y a la Lista.
+     */
     public static void comenzar() {
         lista = new ArrayList<>();
         panel = PanelJuego.getPanel();
         t = new AnimationTimer() {
             @Override
             public void handle(long l) {
-                if (tApar >= 500_000_000){ tApar -= 10_000;}
+                if (tApar >= 500_000_000){ tApar -= 10_000;} //Reduce el tiempo de aparición de enemigos hasta medio segundo.
                 if (l - tAnter >= tApar) {//Hace que aparezca un enemigo cada 2 segundos, comparando el tiempo actual con el anterior.
                     Enemigo e = obtenerEneAle();
-                    //Hay que cambiar la frecuencia según la dificultad
-//                    if (l % 2 == 0){
-//                        Enemigo a = new EnemigoArquero();
-//                        lista.add(a);//Almacenamos todos los enemigos en una lista.
-//                        panel.getChildren().add(a);
-//                    }
                     lista.add(e);//Almacenamos todos los enemigos en una lista.
                     panel.getChildren().add(e);
                     tAnter = l;
+                    if (lista.isEmpty()){//Si no hay ningún enemigo almacenado, generará uno
+                        Enemigo a = obtenerEneAle();
+                        lista.add(a);
+                        panel.getChildren().add(a);
+                    }
                 }
             }
         };
         t.start();
     }
-    //Esto es una prueba, no creo que continue
-    public static void comenzar(int a){
-        lista = new ArrayList<>();
-        panel = PanelJuego.getPanel();
-        Enemigo e = new EnemigoArquero();
-        lista.add(e);//Almacenamos todos los enemigos en una lista.
-        panel.getChildren().add(e);
-    }
 
+    /**
+     * Mediante números aleatorios obtenemos un enemigo aleatorio en una posición aleatoria de las 4 paredes.
+     * @return El enemigo a generar.
+     */
     private static Enemigo obtenerEneAle(){
         int ale = (int) (Math.random()*4+1);
         int ale2 = (int) (Math.random()*2+1);

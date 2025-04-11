@@ -13,6 +13,7 @@ public class Personaje extends Rectangle {
     private static Personaje pers;
     private boolean movIzq, movDch, movArr, movAbj;
     private static Bounds posPj;
+    private int cargador;
 
     public Personaje() {
         super(550, 350, 20, 20); //Posicion X, Posicion Y, Tamaño X, Tamaño Y
@@ -21,6 +22,7 @@ public class Personaje extends Rectangle {
         ponerEnAccion();
         moverPj();
         pers = this;
+        cargador = 5;
     }
 
     public static Personaje getPers(){
@@ -71,8 +73,8 @@ public class Personaje extends Rectangle {
     }
 
     /**
-     *
-     * @param scene
+     *Captura la posición del puntero del raton y calcula en angulo para así rotar al Personaje en ese angulo.
+     * @param scene La escena en la que se encuentra el Personaje.
      */
     public void rotacionRaton(Scene scene) {
         scene.setOnMouseMoved(e -> {
@@ -92,12 +94,16 @@ public class Personaje extends Rectangle {
         scene.setOnMouseClicked(e -> {
             if (e.getButton() == MouseButton.PRIMARY) {
                 disparar();
+                System.out.println("Pium");
             }
         });
     }
 
+    /**
+     * Dispara una bala en la misma dirección en la que mira el Personaje, está limitado.
+     */
     private void disparar(){
-        if (Disparo.getnDisparos() < 10){ //Limitamos el numero de disparos a 5
+        if (Disparo.getnDisparos() < cargador){ //Limitamos el numero de disparos según el cargador.
             //Angulo actual
             double angulo = getRotate();
             double radio = posPj.getHeight() / 2; // Distancia desde el centro a la parte superior
@@ -112,6 +118,9 @@ public class Personaje extends Rectangle {
         }
     }
 
+    /**
+     * Mueve el personaje según las teclas que se han pulsado y si está dentro de los limites del panel
+     */
     private void movimiento() {
         if (movIzq && getBoundsInParent().getMinX() > 0) {
             setLayoutX(getLayoutX() - 3);
@@ -127,6 +136,9 @@ public class Personaje extends Rectangle {
         }
     }
 
+    /**
+     * Llama al método de movimiento() y actualiza su variable con su posición actualizada.
+     */
     private void moverPj() {
         AnimationTimer t = new AnimationTimer() { //Para
             @Override
