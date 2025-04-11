@@ -10,6 +10,7 @@ module com.example.fx {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.logging;
 
     opens app to javafx.fxml;
     exports app to javafx.graphics;
