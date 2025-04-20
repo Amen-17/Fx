@@ -9,7 +9,7 @@ public class Puntuacion extends Text {
     private static int puntuacion = 0;
     private static Puntuacion p;
 
-    private Puntuacion(){
+    Puntuacion(){
        super(String.valueOf(puntuacion));
        setFont(new Font("Roboto",40));//Le cambio la fuente y su tamaño
        setFill(Color.ALICEBLUE);
@@ -27,4 +27,7 @@ public class Puntuacion extends Text {
         return p;
     }
 
+    public static int getPuntos() {
+        return puntuacion;
+    }
 }

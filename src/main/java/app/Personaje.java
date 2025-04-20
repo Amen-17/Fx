@@ -14,15 +14,21 @@ public class Personaje extends Rectangle {
     private boolean movIzq, movDch, movArr, movAbj;
     private static Bounds posPj;
     private int cargador;
+    private String nombre;
 
-    public Personaje() {
+    public Personaje(String nombre) {
         super(550, 350, 20, 20); //Posicion X, Posicion Y, Tamaño X, Tamaño Y
+        this.nombre=nombre;
         panel = PanelJuego.getPanel(); //Para enlazar el jugador con el panel
         setFill(Color.CHOCOLATE); //Color
         ponerEnAccion();
         moverPj();
         pers = this;
         cargador = 5;
+    }
+
+    public String getNombre(){
+        return nombre;
     }
 
     public static Personaje getPers(){

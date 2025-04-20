@@ -11,44 +11,70 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class XML {
+public class XML extends Personaje{
 
-    public static void main(String[] args) {
+    private Document datos_personaje;
+    private Puntuacion puntuacion;
 
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            DOMImplementation implementation = builder.getDOMImplementation();
+    public XML(String nombre) {
+        super(nombre);
+        this.puntuacion = new Puntuacion();
+    }
 
-            Document docu = implementation.createDocument(null, "juego", null);
-            docu.setXmlVersion("1.0");
+    public Puntuacion getPuntuacion() {
+        return Puntuacion.getPuntuacion();
+    }
 
-            Element personajes = docu.createElement("personajes");
-            Element personaje = docu.createElement("personaje");
+    public void GeneradorDOM() throws Exception{
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        datos_personaje= builder.newDocument();
+    }
 
-            //los elementos del xml
-            Element vida = docu.createElement("vida");
-            vida.appendChild(personaje);
-            Element puntos = docu.createElement("puntos");
-            puntos.appendChild(personaje);
-            Element tiempo = docu.createElement("tiempo");
-            tiempo.appendChild(personaje);
+    public void GenerarDocumento() throws Exception{
 
-            personajes.appendChild(personaje);
+        Element personajes = datos_personaje.createElement("personajes");
+        datos_personaje.appendChild(personajes);
+        Element personaje = datos_personaje.createElement("personaje");
 
-            docu.getDocumentElement().appendChild(personajes);
+        //los elementos del xml
+        Element vida = datos_personaje.createElement("vida");
+        vida.appendChild(personaje);
 
-            Source source = new DOMSource(docu);
-            Result result = new StreamResult(new File("datos_personaje.xml"));
+        Element nombre = datos_personaje.createElement("nombre");
+        personaje.appendChild(nombre);
+        nombre.appendChild(datos_personaje.createTextNode(getNombre()));
 
-            Transformer transf = TransformerFactory.newInstance().newTransformer();
-            transf.transform(source, result);
+        Element numEnemigos = datos_personaje.createElement("numero de enemigos");
+        personaje.appendChild(numEnemigos);
 
-        } catch (ParserConfigurationException | TransformerException exc) {
-            Logger.getLogger(XML.class.getName()).log(Level.SEVERE, null, exc);
-        }
+        Element puntos = datos_personaje.createElement("puntos");
+        personaje.appendChild(puntos);
+        String punt = Integer.toString(Puntuacion.getPuntos());
+        puntos.appendChild(datos_personaje.createTextNode(punt));
+
+        Element tiempo = datos_personaje.createElement("tiempo");
+        personaje.appendChild(tiempo);
+
+        personajes.appendChild(personaje);
+
+    }
+
+    public void GenerarXML() throws Exception{
+        Source source = new DOMSource(datos_personaje);
+
+        File ruta = new File("./");
+        FileWriter fw = new FileWriter(ruta);
+        PrintWriter pw = new PrintWriter(fw);
+        Result result = new StreamResult(pw);
+
+        TransformerFactory factoria = TransformerFactory.newInstance();
+        Transformer transformer = factoria.newTransformer();
+        transformer.transform(source, result);
     }
 }
