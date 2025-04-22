@@ -16,14 +16,14 @@ import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class XML extends Personaje{
+public class XML extends Personaje{ //Omar piensalo detenidamente
 
     private Document datos_personaje;
     private Puntuacion puntuacion;
 
     public XML(String nombre) {
         super(nombre);
-        this.puntuacion = new Puntuacion();
+        this.puntuacion = Puntuacion.getPuntuacion();
     }
 
     public Puntuacion getPuntuacion() {

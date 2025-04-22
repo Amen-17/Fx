@@ -25,6 +25,7 @@ public class EnemigoArquero extends Enemigo {
         super(poX, poY, 50, 50, 1, 3);
         atacar();
         setFill(Color.BLUE);
+        System.out.println("Soy un arquero spawneando en: "+poX+" "+poY);
     }
 
     /**
