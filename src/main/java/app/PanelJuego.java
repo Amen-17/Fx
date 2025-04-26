@@ -11,7 +11,7 @@ public class PanelJuego extends Pane {
      */
     public PanelJuego(){
         panel = this; //Guardamos dentro de esta variable el objeto que se guarde
-        pj = new Personaje(pj.getNombre());
+        pj = new Personaje();
         montarEscena();
         GestorEnemigos.comenzar();
     }
