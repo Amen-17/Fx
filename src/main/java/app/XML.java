@@ -36,15 +36,13 @@ public class XML extends Personaje{ //Omar piensalo detenidamente
         datos_personaje= builder.newDocument();
     }
 
-    public void GenerarDocumento() throws Exception{
+    public void GenerarDocumento() throws Exception{  //todavia creo que no se puede hacer que se añadan algunas cosas
 
         Element personajes = datos_personaje.createElement("personajes");
         datos_personaje.appendChild(personajes);
         Element personaje = datos_personaje.createElement("personaje");
 
         //los elementos del xml
-        Element vida = datos_personaje.createElement("vida");
-        vida.appendChild(personaje);
 
         Element nombre = datos_personaje.createElement("nombre");
         personaje.appendChild(nombre);

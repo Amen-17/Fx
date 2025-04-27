@@ -8,11 +8,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Scene escena = new Scene(new PanelPrincipal(),1200,800);
+        Menu menu = new Menu(stage);
+        Scene escena = new Scene(menu, 1200, 800);
+
+        stage.setTitle("Shutter");
         stage.setScene(escena);
         stage.show();
-        Personaje pj = Personaje.getPers();
-        pj.rotacionRaton(escena);
     }
 
     public static void main(String[] args) {

@@ -11,6 +11,7 @@ module com.example.fx {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.logging;
+    requires java.desktop;
 
     opens app to javafx.fxml;
     exports app to javafx.graphics;
