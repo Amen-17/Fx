@@ -11,17 +11,15 @@ public class Menu extends Pane {
 
     public Menu(Stage stage) {
         setPrefSize(1200, 800);
-        setStyle("-fx-background-color: BLACK;");
+        setStyle("-fx-background-color: linear-gradient(to bottom, #1e1e2f, #38384f);");
 
         botones = new ArrayList<>();
 
+        // Botón que inicia el juego
         Boton botonIniciar = new Boton(
-                "file:./Fx/src/main/java/app/imgs/boton1",
-                "file:./Fx/src/main/java/app/imgs/boton2",
                 "Iniciar Juego",
-                500, 300,
+                450, 300,
                 () -> {
-                    // Cambiar a la escena del juego
                     PanelPrincipal panelJuego = new PanelPrincipal();
                     Scene escenaJuego = new Scene(panelJuego, 1200, 800);
                     stage.setScene(escenaJuego);
@@ -31,19 +29,16 @@ public class Menu extends Pane {
                 }
         );
 
+        // Botón para salir
         Boton botonSalir = new Boton(
-                "file:src/main/java/app/imgs/boton1.png",
-                "file:src/main/java/app/imgs/boton2.png",
                 "Salir",
-                500, 400,
-                () -> {
-                    stage.close();
-                }
+                450, 420,
+                stage::close
         );
 
         botones.add(botonIniciar);
         botones.add(botonSalir);
 
-        getChildren().addAll(botonIniciar, botonSalir);
+        getChildren().addAll(botones);
     }
 }

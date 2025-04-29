@@ -1,54 +1,53 @@
 package app;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.animation.ScaleTransition;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.geometry.Pos;
+import javafx.util.Duration;
 
 public class Boton extends StackPane {
 
-    private Image imagenNormal;
-    private Image imagenHover;
-    private ImageView imagenVista;
     private Runnable accion;
 
-    public Boton(String rutaNormal, String rutaHover, String texto, double x, double y, Runnable accion) {
-        imagenNormal = new Image(rutaNormal);
-        imagenHover = new Image(rutaHover);
-        imagenVista = new ImageView(imagenNormal);
+    public Boton(String texto, double x, double y, Runnable accion) {
         this.accion = accion;
 
-        // --- Ajustes extra para que no tape el texto ---
-        imagenVista.setPreserveRatio(true); // Mantener proporción
-        imagenVista.setFitWidth(300);        // Ancho fijo (puedes cambiarlo)
-        imagenVista.setFitHeight(100);       // Alto fijo (puedes cambiarlo)
+        Rectangle fondo = new Rectangle(300, 100);
+        fondo.setFill(Color.DARKSLATEBLUE); // Color base del botón
+        fondo.setArcWidth(20); // Bordes redondeados
+        fondo.setArcHeight(20);
 
-        // Texto encima
         Text textoBoton = new Text(texto);
         textoBoton.setFont(Font.font("Arial", 24));
         textoBoton.setStyle("-fx-fill: white; -fx-font-weight: bold;");
 
-        // Configuraciones del StackPane
         setLayoutX(x);
         setLayoutY(y);
-        setAlignment(Pos.CENTER); // Centrar todo
-
-        getChildren().addAll(imagenVista, textoBoton);
+        setAlignment(Pos.CENTER);
+        getChildren().addAll(fondo, textoBoton);
 
         // Eventos de ratón
-        setOnMouseEntered((MouseEvent e) -> {
-            imagenVista.setImage(imagenHover);
-        });
+        setOnMouseEntered(this::hoverEnter);
+        setOnMouseExited(this::hoverExit);
+        setOnMouseClicked(e -> accion.run());
+    }
 
-        setOnMouseExited((MouseEvent e) -> {
-            imagenVista.setImage(imagenNormal);
-        });
+    private void hoverEnter(MouseEvent e) {
+        ScaleTransition st = new ScaleTransition(Duration.millis(200), this); //permite que el boton aumente
+        st.setToX(1.1);
+        st.setToY(1.1);
+        st.play();
+    }
 
-        setOnMouseClicked((MouseEvent e) -> {
-            accion.run();
-        });
+    private void hoverExit(MouseEvent e) {
+        ScaleTransition st = new ScaleTransition(Duration.millis(200), this);
+        st.setToX(1.0);
+        st.setToY(1.0);
+        st.play();
     }
 }
