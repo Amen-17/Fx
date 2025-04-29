@@ -48,16 +48,16 @@ public class XML extends Personaje{ //Omar piensalo detenidamente
         personaje.appendChild(nombre);
         nombre.appendChild(datos_personaje.createTextNode(getNombre()));
 
-        Element numEnemigos = datos_personaje.createElement("numero de enemigos");
-        personaje.appendChild(numEnemigos);
-
-        Element puntos = datos_personaje.createElement("puntos");
-        personaje.appendChild(puntos);
+        Element enemDerrotados = datos_personaje.createElement("enemDerrotados");
+        personaje.appendChild(enemDerrotados);
         String punt = Integer.toString(Puntuacion.getPuntos());
-        puntos.appendChild(datos_personaje.createTextNode(punt));
+        enemDerrotados.appendChild(datos_personaje.createTextNode(punt));
 
         Element tiempo = datos_personaje.createElement("tiempo");
         personaje.appendChild(tiempo);
+        Tiempo t= Tiempo.getTiempoTotal();
+        String tex= t.getTiempoMinSeg();
+        tiempo.appendChild(datos_personaje.createTextNode(tex));
 
         personajes.appendChild(personaje);
 

@@ -1,5 +1,6 @@
 package app;
 
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
@@ -32,6 +33,10 @@ public class Vida extends Rectangle {
             Vida v = vidas.get(indiceAct);
             PanelInf.getPanel().getChildren().remove(v);
             indiceAct--;
+        }
+        if (indiceAct ==0){
+            Tiempo t = Tiempo.getTiempoTotal();
+            t.detenerCronometro();
         }
     }
 }

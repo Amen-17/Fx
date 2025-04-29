@@ -31,7 +31,7 @@ public class Boton extends StackPane {
         setAlignment(Pos.CENTER);
         getChildren().addAll(fondo, textoBoton);
 
-        // Eventos de ratón
+        // lo que  le puede pasar al ratón
         setOnMouseEntered(this::hoverEnter);
         setOnMouseExited(this::hoverExit);
         setOnMouseClicked(e -> accion.run());

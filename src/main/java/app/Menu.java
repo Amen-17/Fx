@@ -26,6 +26,8 @@ public class Menu extends Pane {
 
                     Personaje pj = Personaje.getPers();
                     pj.rotacionRaton(escenaJuego);
+                    Tiempo t = Tiempo.getTiempoTotal();
+                    t.iniciarCronometro();
                 }
         );
 
