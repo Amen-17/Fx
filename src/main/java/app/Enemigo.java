@@ -38,15 +38,15 @@ public abstract class Enemigo extends Rectangle {
      */
     protected void comprobarMuerte() {
         if (localToScene(getBoundsInLocal()).intersects(Personaje.getPos())) {
-            if (this instanceof EnemigoArquero){
-                System.out.println("soy un arquero");
-            }
-            else System.out.println("no soy un arquero");
-            panel.getChildren().remove(this);//Borramos el enemigo
-            GestorEnemigos.getLista().remove(this);//Borramos de la lista los que se salen de la pantalla
-            Vida.reducirVida(); //Nos quitan una vida
-            t.stop(); //Paramos su animación
+            muerte();
         }
+    }
+
+    protected void muerte(){
+        panel.getChildren().remove(this);//Borramos el enemigo
+        GestorEnemigos.getLista().remove(this);//Borramos de la lista los que se salen de la pantalla
+        Vida.reducirVida(); //Nos quitan una vida
+        t.stop(); //Paramos su animación
     }
 
     /**
