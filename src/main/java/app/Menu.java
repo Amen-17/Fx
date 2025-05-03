@@ -31,7 +31,6 @@ public class Menu extends Pane {
                 }
         );
 
-        // Botón para salir
         Boton botonSalir = new Boton(
                 "Salir",
                 450, 420,
