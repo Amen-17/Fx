@@ -15,4 +15,12 @@ module com.example.fx {
 
     opens app to javafx.fxml;
     exports app to javafx.graphics;
+    exports app.datos to javafx.graphics;
+    opens app.datos to javafx.fxml;
+    exports app.enemigo to javafx.graphics;
+    opens app.enemigo to javafx.fxml;
+    exports app.paneles to javafx.graphics;
+    opens app.paneles to javafx.fxml;
+    exports app.personaje to javafx.graphics;
+    opens app.personaje to javafx.fxml;
 }

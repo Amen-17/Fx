@@ -1,5 +1,7 @@
-package app;
+package app.personaje;
 
+import app.Disparo;
+import app.paneles.PanelJuego;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Bounds;
 import javafx.scene.Scene;

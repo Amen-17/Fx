@@ -1,5 +1,7 @@
-package app;
+package app.paneles;
 
+import app.personaje.Personaje;
+import app.enemigo.GestorEnemigos;
 import javafx.scene.layout.Pane;
 
 public class PanelJuego extends Pane {

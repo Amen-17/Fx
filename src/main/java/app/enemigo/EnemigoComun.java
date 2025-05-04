@@ -1,9 +1,9 @@
-package app;
+package app.enemigo;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.paint.Color;
 
-public class EnemigoComun extends Enemigo{
+public class EnemigoComun extends Enemigo {
 
 
     public EnemigoComun() {

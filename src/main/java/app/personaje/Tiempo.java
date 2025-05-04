@@ -1,4 +1,4 @@
-package app;
+package app.personaje;
 
 import javafx.animation.AnimationTimer;
 

@@ -1,6 +1,6 @@
-package app;
+package app.personaje;
 
-import javafx.application.Platform;
+import app.paneles.PanelInf;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;

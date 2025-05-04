@@ -1,4 +1,4 @@
-package app;
+package app.datos;
 
 public class GestorXml {
     private XML xml;

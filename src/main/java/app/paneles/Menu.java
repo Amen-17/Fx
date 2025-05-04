@@ -1,5 +1,7 @@
-package app;
+package app.paneles;
 
+import app.personaje.Personaje;
+import app.personaje.Tiempo;
 import javafx.scene.layout.Pane;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

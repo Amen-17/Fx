@@ -1,5 +1,7 @@
-package app;
+package app.enemigo;
 
+import app.Disparo;
+import app.personaje.Personaje;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Bounds;
 import javafx.scene.paint.Color;

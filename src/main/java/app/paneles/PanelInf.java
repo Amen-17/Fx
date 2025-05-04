@@ -1,5 +1,7 @@
-package app;
+package app.paneles;
 
+import app.personaje.Puntuacion;
+import app.personaje.Vida;
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;

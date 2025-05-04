@@ -1,5 +1,8 @@
-package app;
+package app.enemigo;
 
+import app.paneles.PanelJuego;
+import app.personaje.Personaje;
+import app.personaje.Vida;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Bounds;
 import javafx.scene.image.Image;

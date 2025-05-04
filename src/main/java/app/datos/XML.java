@@ -1,6 +1,8 @@
-package app;
+package app.datos;
 
-import org.w3c.dom.DOMImplementation;
+import app.personaje.Personaje;
+import app.personaje.Puntuacion;
+import app.personaje.Tiempo;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;

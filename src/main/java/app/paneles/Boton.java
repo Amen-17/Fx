@@ -1,4 +1,4 @@
-package app;
+package app.paneles;
 
 import javafx.animation.ScaleTransition;
 import javafx.scene.input.MouseEvent;

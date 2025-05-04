@@ -1,5 +1,11 @@
 package app;
 
+import app.enemigo.Enemigo;
+import app.enemigo.GestorEnemigos;
+import app.paneles.PanelJuego;
+import app.personaje.Personaje;
+import app.personaje.Puntuacion;
+import app.personaje.Vida;
 import javafx.animation.AnimationTimer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;

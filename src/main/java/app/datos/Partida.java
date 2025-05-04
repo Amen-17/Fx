@@ -1,4 +1,4 @@
-package app;
+package app.datos;
 
 public class Partida { //me ayuda a leer el xml
     private String nombre;

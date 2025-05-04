@@ -1,5 +1,6 @@
-package app;
+package app.enemigo;
 
+import app.paneles.PanelJuego;
 import javafx.animation.AnimationTimer;
 
 import java.util.ArrayList;
