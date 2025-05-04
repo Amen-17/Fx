@@ -1,5 +1,6 @@
 package app;
 
+import app.datos.Util;
 import app.paneles.Menu;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -9,6 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        Util.setStage(stage);
         Menu menu = new Menu(stage);
         Scene escena = new Scene(menu, 1200, 800);
         stage.setTitle("Menú Principal");

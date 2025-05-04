@@ -16,58 +16,54 @@ import java.io.File;
 
 public class XML {
 
-    private File archivo;
-    private Personaje personaje;
-    private Puntuacion puntuacion;
-    private Tiempo tiempo;
+    private final Puntuacion puntuacion;
+    private final Tiempo tiempo;
 
-    public XML(File archivo, Personaje personaje, Puntuacion puntuacion, Tiempo tiempo) {
-        this.archivo = archivo;
-        this.personaje = personaje;
+    public XML(Puntuacion puntuacion, Tiempo tiempo) {
         this.puntuacion = puntuacion;
         this.tiempo = tiempo;
     }
 
     public void guardarPartida() throws Exception {
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); //prepara un documento
+        File archivo = Util.getArchivoPartidas();
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc;
 
+        Element raiz;
 
-        if (archivo.exists()) { //comprueba si existe
+        if (archivo.exists()) {
             doc = builder.parse(archivo);
+            raiz = (Element) doc.getDocumentElement();
         } else {
             doc = builder.newDocument();
-            Element root = doc.createElement("personajes");
-            doc.appendChild(root);
+            raiz = doc.createElement("personajes");
+            doc.appendChild(raiz);
         }
 
-
-        NodeList lista = doc.getElementsByTagName("personaje"); //coge los nodos ya existente para darle nombre de jugador1...
-        int numJugador = lista.getLength() + 1;
+        int numJugador = doc.getElementsByTagName("personaje").getLength() + 1;
         String nombre = "Jugador" + numJugador;
 
-        // crea los elementos
-        Element personajeElem = doc.createElement("personaje");
+        Element personaje = doc.createElement("personaje");
 
-        Element nombreElem = doc.createElement("Nombre");
-        nombreElem.appendChild(doc.createTextNode(nombre));
-        personajeElem.appendChild(nombreElem);
+        Element nomb = doc.createElement("Nombre");
+        nomb.appendChild(doc.createTextNode(nombre));
+        personaje.appendChild(nomb);
 
-        Element puntosElem = doc.createElement("EnemigosDerrotados");
-        puntosElem.appendChild(doc.createTextNode(String.valueOf(puntuacion.getPuntos())));
-        personajeElem.appendChild(puntosElem);
+        Element punt = doc.createElement("EnemigosDerrotados");
+        punt.appendChild(doc.createTextNode(String.valueOf(puntuacion.getPuntos())));
+        personaje.appendChild(punt);
 
-        Element tiempoElem = doc.createElement("Tiempo");
-        tiempoElem.appendChild(doc.createTextNode(tiempo.getTiempoMinSeg()));
-        personajeElem.appendChild(tiempoElem);
+        Element tiemp = doc.createElement("Tiempo");
+        tiemp.appendChild(doc.createTextNode(tiempo.getTiempoMinSeg()));
+        personaje.appendChild(tiemp);
 
-        doc.getDocumentElement().appendChild(personajeElem);// añade al documento
+        raiz.appendChild(personaje);
 
-
-        Transformer transformer = TransformerFactory.newInstance().newTransformer();// Guardar en el documento
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         transformer.transform(new DOMSource(doc), new StreamResult(archivo));
+        System.out.println("Partida guardada en: " + archivo.getAbsolutePath());
     }
 }
 

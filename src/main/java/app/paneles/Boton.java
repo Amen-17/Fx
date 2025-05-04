@@ -14,12 +14,18 @@ public class Boton extends StackPane {
 
     private Runnable accion;
 
+    // Constructor original
     public Boton(String texto, double x, double y, Runnable accion) {
+        this(texto, x, y, 300, 100, accion); // Reutiliza el nuevo constructor con tamaño por defecto
+    }
+
+    // Nuevo constructor con tamaño personalizado
+    public Boton(String texto, double x, double y, double ancho, double alto, Runnable accion) {
         this.accion = accion;
 
-        Rectangle fondo = new Rectangle(300, 100);
-        fondo.setFill(Color.DARKSLATEBLUE); // Color base del botón
-        fondo.setArcWidth(20); // Bordes redondeados
+        Rectangle fondo = new Rectangle(ancho, alto);
+        fondo.setFill(Color.DARKSLATEBLUE);
+        fondo.setArcWidth(20);
         fondo.setArcHeight(20);
 
         Text textoBoton = new Text(texto);
@@ -31,14 +37,13 @@ public class Boton extends StackPane {
         setAlignment(Pos.CENTER);
         getChildren().addAll(fondo, textoBoton);
 
-        // lo que  le puede pasar al ratón
         setOnMouseEntered(this::hoverEnter);
         setOnMouseExited(this::hoverExit);
         setOnMouseClicked(e -> accion.run());
     }
 
     private void hoverEnter(MouseEvent e) {
-        ScaleTransition st = new ScaleTransition(Duration.millis(200), this); //permite que el boton aumente
+        ScaleTransition st = new ScaleTransition(Duration.millis(200), this);
         st.setToX(1.1);
         st.setToY(1.1);
         st.play();

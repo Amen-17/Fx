@@ -1,9 +1,14 @@
 package app.personaje;
 
+import app.datos.Util;
+import app.datos.XML;
+import app.paneles.GameOver;
 import app.paneles.PanelInf;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
@@ -11,7 +16,7 @@ public class Vida extends Rectangle {
 
     private static ArrayList<Vida> vidas;
     private Image img = new Image("file:src/main/java/app/imgs/vida.png");
-    private static int indiceAct = 2;
+    private static int indiceAct = 3;
 
     private Vida() {
         super(50, 50);
@@ -29,14 +34,34 @@ public class Vida extends Rectangle {
     }
 
     public static void reducirVida() {
-        if (indiceAct >= 0) {
+        if (indiceAct > 0) {
+            indiceAct--;
             Vida v = vidas.get(indiceAct);
             PanelInf.getPanel().getChildren().remove(v);
-            indiceAct--;
         }
-        if (indiceAct ==0){
-            Tiempo t = Tiempo.getTiempoTotal();
-            t.detenerCronometro();
+
+        if (indiceAct == 0) {
+            Tiempo tiempo = Tiempo.getTiempoTotal();
+            Puntuacion puntuacion = Puntuacion.getPuntuacion();
+
+            tiempo.detenerCronometro();
+
+            try {
+                XML xml = new XML(puntuacion, tiempo);
+                xml.guardarPartida();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            Stage stage = Util.getStage();
+            GameOver fin = new GameOver(stage);
+            Scene escena = new Scene(fin, 1200, 800);
+            stage.setScene(escena);
         }
+    }
+
+    public static void reiniciarVidas(){
+        indiceAct = 3;
+        vidas = null;
     }
 }
