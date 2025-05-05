@@ -2,9 +2,8 @@ package app.personaje;
 
 import app.datos.Util;
 import app.datos.XML;
-import app.paneles.GameOver;
+import app.paneles.Menu;
 import app.paneles.PanelInf;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
@@ -54,9 +53,7 @@ public class Vida extends Rectangle {
             }
 
             Stage stage = Util.getStage();
-            GameOver fin = new GameOver(stage);
-            Scene escena = new Scene(fin, 1200, 800);
-            stage.setScene(escena);
+            Menu.GameOver(stage);
         }
     }
 
