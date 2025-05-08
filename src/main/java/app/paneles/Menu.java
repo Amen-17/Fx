@@ -16,6 +16,9 @@ import java.util.ArrayList;
 public class Menu extends Pane {
 
     private ArrayList<Boton> botones;
+    private static Pane menu;
+    private static Pane gameOver;
+    private static PanelPrincipal panelPrin;
 
     public Menu(Stage stage) {
         setPrefSize(1200, 800);
@@ -24,10 +27,7 @@ public class Menu extends Pane {
         botones = new ArrayList<>();
 
         // Botón que inicia el juego
-        Boton botonIniciar = new Boton(
-                "Iniciar Juego",
-                450, 300,
-                () -> {
+        Boton botonIniciar = new Boton("Iniciar Juego",450, 300,() -> {
                     PanelPrincipal panelJuego = new PanelPrincipal();
                     Scene escenaJuego = new Scene(panelJuego, 1200, 800);
                     stage.setScene(escenaJuego);
@@ -39,11 +39,7 @@ public class Menu extends Pane {
                 }
         );
 
-        Boton botonSalir = new Boton(
-                "Salir",
-                450, 420,
-                stage::close
-        );
+        Boton botonSalir = new Boton("Salir",450, 420,stage::close);
 
         botones.add(botonIniciar);
         botones.add(botonSalir);
@@ -51,11 +47,19 @@ public class Menu extends Pane {
         getChildren().addAll(botones);
     }
 
-    public static void GameOver(Stage stage) {
-        Pane gameOverPane = new Pane();
-        gameOverPane.setPrefSize(1200, 800);
-        gameOverPane.setStyle("-fx-background-color: linear-gradient(to bottom, #000000, #4b0000);");
+    private static Pane crearGameOver(){
+        if (gameOver == null){
+            Pane gameOver = new Pane();
+            gameOver.setPrefSize(1200, 800);
+            gameOver.setStyle("-fx-background-color: linear-gradient(to bottom, #000000, #4b0000);");
+        }
+        return gameOver;
 
+    }
+
+    public static void GameOver(Stage stage) {
+        Pane gameOverPane = crearGameOver();
+        PanelJuego.pararJuego();
         try {
             HistorialPartidas historial = new HistorialPartidas();
             Partida ultima = historial.ultimaPartida();
@@ -63,7 +67,7 @@ public class Menu extends Pane {
                 Label resultado = new Label("Última Partida: " + ultima.toString());
                 resultado.setTextFill(Color.WHITE);
                 resultado.setFont(new Font("Arial", 24));
-                resultado.setLayoutX(400);
+                resultado.setLayoutX(280);
                 resultado.setLayoutY(200);
                 gameOverPane.getChildren().add(resultado);
             }

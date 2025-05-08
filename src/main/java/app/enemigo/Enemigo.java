@@ -42,13 +42,13 @@ public abstract class Enemigo extends Rectangle {
     protected void comprobarMuerte() {
         if (localToScene(getBoundsInLocal()).intersects(Personaje.getPos())) {
             muerte();
+            Vida.reducirVida(); //Nos quitan una vida
         }
     }
 
     protected void muerte(){
         panel.getChildren().remove(this);//Borramos el enemigo
         GestorEnemigos.getLista().remove(this);//Borramos de la lista los que se salen de la pantalla
-        Vida.reducirVida(); //Nos quitan una vida
         t.stop(); //Paramos su animación
     }
 
@@ -120,4 +120,6 @@ public abstract class Enemigo extends Rectangle {
     public void reducirVida() {
         vida--;
     }
+
+    public abstract Bounds getPosc();
 }

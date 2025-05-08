@@ -1,10 +1,11 @@
 package app;
 
-import app.datos.Util;
 import app.paneles.Menu;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 public class Main extends Application {
 
@@ -20,5 +21,22 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public static class Util {
+        public static final String ARCHIVO_PARTIDAS = "partidas.xml";
+        private static Stage stagePrincipal;
+
+        public static void setStage(Stage stage) {
+            stagePrincipal = stage;
+        }
+
+        public static Stage getStage() {
+            return stagePrincipal;
+        }
+
+        public static File getArchivoPartidas() {
+            return new File("./partidas.xml");
+        }
     }
 }

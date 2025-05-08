@@ -23,7 +23,7 @@ public class Disparo extends Rectangle {
 
     public Disparo(double poX, double poY, double angulo,boolean prop){
         super(poX-2,poY-15,2,15);
-        setRotate(angulo+90); //Hay que añadirle 90º debido a que el angulo 0º es hacía la derecha.
+        setRotate(angulo+90); //Hay que añadirle 90º debido a que el angulo 0º es hacia la derecha.
         panel = PanelJuego.getPanel();
         propietario = prop;
         enPantalla = true;

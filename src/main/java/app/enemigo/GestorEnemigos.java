@@ -2,6 +2,7 @@ package app.enemigo;
 
 import app.paneles.PanelJuego;
 import javafx.animation.AnimationTimer;
+import javafx.geometry.Bounds;
 
 import java.util.ArrayList;
 
@@ -82,5 +83,14 @@ public class GestorEnemigos {
         return lista;
     }
 
+    public static void detener(){
+        t.stop();
+        matarEnemigos();
+    }
 
+    private static void matarEnemigos(){
+        for (Enemigo e:lista){
+            e.muerte();
+        }
+    }
 }

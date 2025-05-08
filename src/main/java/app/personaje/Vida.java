@@ -1,6 +1,6 @@
 package app.personaje;
 
-import app.datos.Util;
+import app.Main;
 import app.datos.XML;
 import app.paneles.Menu;
 import app.paneles.PanelInf;
@@ -52,7 +52,7 @@ public class Vida extends Rectangle {
                 e.printStackTrace();
             }
 
-            Stage stage = Util.getStage();
+            Stage stage = Main.Util.getStage();
             Menu.GameOver(stage);
         }
     }

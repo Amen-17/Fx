@@ -39,28 +39,32 @@ public class EnemigoArquero extends Enemigo {
         t = new AnimationTimer() {
             @Override
             public void handle(long l) { //La variable 'l' almacena cuantos nanosegundos han pasado.
-                posEnArc = getBoundsInParent(); //Almacena su nueva posición
+                posEnArc = EnemigoArquero.this.localToScene(EnemigoArquero.this.getBoundsInLocal()); //Almacena su nueva posición
                 EnemigoArquero.super.rotar(); //Hace que el Enemigo esté constantemente rotando según la posición del personaje.
-                if (comprobarCerca(posEneArc(), Personaje.getPos())) { // Si el personaje se acerca mucho el enemigo huye un poco
-                    if (Personaje.getPos().getCenterX() > posEneArc().getCenterX()) {
+                if (comprobarCerca(getPosc(), Personaje.getPos())) { // Si el personaje se acerca mucho el enemigo huye un poco
+                    if (Personaje.getPos().getCenterX() > getPosc().getCenterX()) {
                         setLayoutX(getLayoutX() - 1);
                     } else {
                         setLayoutX(getLayoutX() + 1);
                     }
-                    if (Personaje.getPos().getCenterY() > posEneArc().getCenterY()) {
+                    if (Personaje.getPos().getCenterY() > getPosc().getCenterY()) {
                         setLayoutY(getLayoutY() - 1);
                     } else {
                         setLayoutY(getLayoutY() + 1);
                     }
                 } else {
-                    if (comprobarDistancia(posEneArc(), Personaje.getPos())) {
+                    if (comprobarDistancia(getPosc(), Personaje.getPos())) {
                         if (l - tAnter > tDisp) { //Si los nanosegundos totales - los nanosegundos del último disparo son mayores que la variable tDisp.
-                            if (posEneArc().getMinX() > 0 || posEneArc().getMinY() > 0)
+                            if (getPosc().getMinX() > 0 || getPosc().getMinY() > 0)
                                 disparar();
                             tAnter = l; // Almacena los nanosegundos actuales en el momento del disparo.
                         }
                     } else {
-                        EnemigoArquero.super.atacar();
+//                        if (!GestorEnemigos.comprobarColisiones(EnemigoArquero.this)){
+                            EnemigoArquero.super.atacar();
+//                            System.out.println("Si me quiero mover");
+//                        }else System.out.println("No me quiero mover");
+
                     }
                 }
                 EnemigoArquero.super.comprobarMuerte();
@@ -114,7 +118,9 @@ public class EnemigoArquero extends Enemigo {
         return false;
     }
 
-    public static Bounds posEneArc() {
+    public Bounds getPosc() {
         return posEnArc;
     }
+
+
 }

@@ -2,7 +2,11 @@ package app.paneles;
 
 import app.personaje.Personaje;
 import app.enemigo.GestorEnemigos;
+import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import java.util.Scanner;
 
 public class PanelJuego extends Pane {
     private static PanelJuego panel; //Para guardar el objeto que se cree en el constructor
@@ -24,6 +28,20 @@ public class PanelJuego extends Pane {
 
     public static PanelJuego getPanel(){
         return panel;
+    }
+
+    public void empezarJuego(Scene escena){
+        GestorEnemigos.comenzar();
+        pj.rotacionRaton(escena);
+    }
+    public static void pararJuego(){
+        Personaje.getAni().stop();
+        GestorEnemigos.detener();
+    }
+
+    public void comenzarJuego(){
+
+
     }
 }
 

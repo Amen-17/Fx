@@ -17,6 +17,7 @@ public class Personaje extends Rectangle {
     private static Bounds posPj;
     private int cargador;
     private String nombre;
+    private static AnimationTimer t;
 
     public Personaje(String nombre) {
         super(550, 350, 20, 20); //Posicion X, Posicion Y, Tamaño X, Tamaño Y
@@ -36,6 +37,13 @@ public class Personaje extends Rectangle {
         moverPj();
         pers = this;
         cargador = 5;
+    }
+
+    public void reiniciarPJ(){
+        setLayoutX(550);
+        setLayoutY(350);
+        Vida.reiniciarVidas();
+        setRotate(90);
     }
 
     public String getNombre(){
@@ -157,7 +165,7 @@ public class Personaje extends Rectangle {
      * Llama al método de movimiento() y actualiza su variable con su posición actualizada.
      */
     private void moverPj() {
-        AnimationTimer t = new AnimationTimer() { //Para
+        t = new AnimationTimer() { //Para
             @Override
             public void handle(long l) {
                 movimiento();
@@ -165,6 +173,10 @@ public class Personaje extends Rectangle {
             }
         };
         t.start(); // Siempre que haga un AnimationTimer he de empezarlo, si no no hace caso.
+    }
+
+    public static AnimationTimer getAni(){
+        return t;
     }
 
     public static Bounds getPos(){

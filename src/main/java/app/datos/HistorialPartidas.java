@@ -1,5 +1,6 @@
 package app.datos;
 
+import app.Main;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.OutputKeys;
@@ -19,7 +20,7 @@ public class HistorialPartidas {
     }
 
     public HistorialPartidas() throws Exception {
-        File archivo = Util.getArchivoPartidas();
+        File archivo = Main.Util.getArchivoPartidas();
 
         if (!archivo.exists()) {
             // con esto si por alguna razon no existe lo creo

@@ -12,6 +12,7 @@ module com.example.fx {
     requires com.almasb.fxgl.all;
     requires java.logging;
     requires java.desktop;
+    requires annotations;
 
     opens app to javafx.fxml;
     exports app to javafx.graphics;
