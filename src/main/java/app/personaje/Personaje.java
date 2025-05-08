@@ -19,24 +19,22 @@ public class Personaje extends Rectangle {
     private String nombre;
     private static AnimationTimer t;
 
-    public Personaje(String nombre) {
-        super(550, 350, 20, 20); //Posicion X, Posicion Y, Tamaño X, Tamaño Y
-        this.nombre=nombre;
-        panel = PanelJuego.getPanel(); //Para enlazar el jugador con el panel
-        setFill(Color.CHOCOLATE); //Color
-        ponerEnAccion();
-        moverPj();
-        pers = this;
-        cargador = 5;
-    }
     public Personaje() {
         super(550, 350, 20, 20); //Posicion X, Posicion Y, Tamaño X, Tamaño Y
+        moverPj();
         panel = PanelJuego.getPanel(); //Para enlazar el jugador con el panel
         setFill(Color.CHOCOLATE); //Color
         ponerEnAccion();
-        moverPj();
         pers = this;
         cargador = 5;
+        System.out.println("Me he creado");
+    }
+
+    public static Personaje getPers(){
+        if (pers == null){
+            pers = new Personaje();
+        }
+        return pers;
     }
 
     public void reiniciarPJ(){
@@ -48,10 +46,6 @@ public class Personaje extends Rectangle {
 
     public String getNombre(){
         return nombre;
-    }
-
-    public static Personaje getPers(){
-        return pers;
     }
 
     /**

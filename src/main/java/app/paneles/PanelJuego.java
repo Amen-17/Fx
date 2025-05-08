@@ -17,7 +17,8 @@ public class PanelJuego extends Pane {
      */
     public PanelJuego(){
         panel = this; //Guardamos dentro de esta variable el objeto que se guarde
-        pj = new Personaje();
+        setPrefSize(1200, 800);
+        pj = Personaje.getPers();
         montarEscena();
         GestorEnemigos.comenzar();
     }
@@ -30,18 +31,5 @@ public class PanelJuego extends Pane {
         return panel;
     }
 
-    public void empezarJuego(Scene escena){
-        GestorEnemigos.comenzar();
-        pj.rotacionRaton(escena);
-    }
-    public static void pararJuego(){
-        Personaje.getAni().stop();
-        GestorEnemigos.detener();
-    }
-
-    public void comenzarJuego(){
-
-
-    }
 }
 

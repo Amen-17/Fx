@@ -1,6 +1,7 @@
 package app.datos;
 
 import app.Main;
+import app.Util;
 import app.personaje.Puntuacion;
 import app.personaje.Tiempo;
 import org.w3c.dom.Document;
@@ -24,7 +25,7 @@ public class XML {
     }
 
     public void guardarPartida() throws Exception {
-        File archivo = Main.Util.getArchivoPartidas();
+        File archivo = Util.getArchivoPartidas();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc;

@@ -1,7 +1,9 @@
 package app.personaje;
 
 import app.Main;
+import app.Util;
 import app.datos.XML;
+import app.paneles.Escenas;
 import app.paneles.Menu;
 import app.paneles.PanelInf;
 import javafx.scene.image.Image;
@@ -52,8 +54,7 @@ public class Vida extends Rectangle {
                 e.printStackTrace();
             }
 
-            Stage stage = Main.Util.getStage();
-            Menu.GameOver(stage);
+            Escenas.getEscena().setGameOver();
         }
     }
 

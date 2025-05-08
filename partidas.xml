@@ -1,8 +1,404 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <personajes>
+                                                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <personaje>
+                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <Nombre>Jugador1</Nombre>
+                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <EnemigosDerrotados>0</EnemigosDerrotados>
+                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <Tiempo>00:03</Tiempo>
+                                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </personaje>
+                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <personaje>
+                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <Nombre>Jugador2</Nombre>
+                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <Tiempo>00:05</Tiempo>
+                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </personaje>
+                                        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <personaje>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <Nombre>Jugador3</Nombre>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <Tiempo>00:05</Tiempo>
+                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    </personaje>
+                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    <personaje>
+                                                                        
+        
+        
+        
+        
+        
+        
+        
+        <Nombre>Jugador4</Nombre>
+                                                                        
+        
+        
+        
+        
+        
+        
+        
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+                                                                        
+        
+        
+        
+        
+        
+        
+        
+        <Tiempo>00:05</Tiempo>
+                                                                    
+    
+    
+    
+    
+    
+    
+    
+    </personaje>
+                                
+    
+    
+    
+    
+    
+    
+    
+    <personaje>
+                                                                
+        
+        
+        
+        
+        
+        
+        <Nombre>Jugador5</Nombre>
+                                                                
+        
+        
+        
+        
+        
+        
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+                                                                
+        
+        
+        
+        
+        
+        
+        <Tiempo>00:05</Tiempo>
+                                                            
+    
+    
+    
+    
+    
+    
+    </personaje>
+                            
+    
+    
+    
+    
+    
+    
+    <personaje>
+                                                        
+        
+        
+        
+        
+        
+        <Nombre>Jugador6</Nombre>
+                                                        
+        
+        
+        
+        
+        
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+                                                        
+        
+        
+        
+        
+        
+        <Tiempo>00:05</Tiempo>
+                                                    
+    
+    
+    
+    
+    
+    </personaje>
+                        
+    
+    
+    
+    
+    
+    <personaje>
+                                                
+        
+        
+        
+        
+        <Nombre>Jugador7</Nombre>
+                                                
+        
+        
+        
+        
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+                                                
+        
+        
+        
+        
+        <Tiempo>00:05</Tiempo>
+                                            
+    
+    
+    
+    
+    </personaje>
+                    
+    
+    
+    
+    
+    <personaje>
+                                        
+        
+        
+        
+        <Nombre>Jugador8</Nombre>
+                                        
+        
+        
+        
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+                                        
+        
+        
+        
+        <Tiempo>00:05</Tiempo>
+                                    
+    
+    
+    
+    </personaje>
+                
+    
+    
+    
+    <personaje>
+                                
+        
+        
+        <Nombre>Jugador9</Nombre>
+                                
+        
+        
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+                                
+        
+        
+        <Tiempo>00:05</Tiempo>
+                            
+    
+    
+    </personaje>
+            
+    
+    
+    <personaje>
+                        
+        
+        <Nombre>Jugador10</Nombre>
+                        
+        
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+                        
+        
+        <Tiempo>00:05</Tiempo>
+                    
+    
+    </personaje>
+        
+    
+    <personaje>
+                
+        <Nombre>Jugador11</Nombre>
+                
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+                
+        <Tiempo>00:05</Tiempo>
+            
+    </personaje>
+    
+    <personaje>
+        <Nombre>Jugador12</Nombre>
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+        <Tiempo>00:05</Tiempo>
     </personaje>
 </personajes>
