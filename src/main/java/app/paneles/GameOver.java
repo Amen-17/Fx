@@ -3,6 +3,7 @@ package app.paneles;
 import app.Util;
 import app.datos.HistorialPartidas;
 import app.datos.Partida;
+import app.personaje.Vida;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -15,7 +16,6 @@ public class GameOver extends Pane {
     public GameOver(Stage stage) {
         setPrefSize(1200, 800);
         setStyle("-fx-background-color: linear-gradient(to bottom, #000000, #4b0000);");
-        Util.pararJuego();
         gameOver = this;
         try {
             HistorialPartidas historial = new HistorialPartidas();

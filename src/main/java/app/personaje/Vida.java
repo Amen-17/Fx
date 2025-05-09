@@ -18,10 +18,12 @@ public class Vida extends Rectangle {
     private static ArrayList<Vida> vidas;
     private Image img = new Image("file:src/main/java/app/imgs/vida.png");
     private static int indiceAct = 3;
+    public static boolean muerto;
 
     private Vida() {
         super(50, 50);
         setFill(new ImagePattern(img));
+        muerto = false;
     }
 
     public static ArrayList<Vida> getVidas() {
@@ -36,6 +38,7 @@ public class Vida extends Rectangle {
 
     public static void reducirVida() {
         if (indiceAct > 0) {
+            System.out.println("Mi indice es"+indiceAct);
             indiceAct--;
             Vida v = vidas.get(indiceAct);
             PanelInf.getPanel().getChildren().remove(v);
@@ -44,9 +47,8 @@ public class Vida extends Rectangle {
         if (indiceAct == 0) {
             Tiempo tiempo = Tiempo.getTiempoTotal();
             Puntuacion puntuacion = Puntuacion.getPuntuacion();
-
             tiempo.detenerCronometro();
-
+            muerto = true;
             try {
                 XML xml = new XML(puntuacion, tiempo);
                 xml.guardarPartida();

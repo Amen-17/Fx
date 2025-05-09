@@ -1,6 +1,219 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <personajes>
+                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <personaje>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <Nombre>Jugador1</Nombre>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <Tiempo>00:08</Tiempo>
+                                                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </personaje>
+                                                        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <personaje>
+                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <Nombre>Jugador2</Nombre>
+                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <Tiempo>00:03</Tiempo>
+                                                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </personaje>
+                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <personaje>
+                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <Nombre>Jugador3</Nombre>
+                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <EnemigosDerrotados>0</EnemigosDerrotados>
+                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <Tiempo>00:03</Tiempo>
+                                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </personaje>
                                                 
+    
     
     
     
@@ -23,7 +236,7 @@
         
         
         
-        <Nombre>Jugador1</Nombre>
+        <Nombre>Jugador4</Nombre>
                                                                                                 
         
         
@@ -47,7 +260,7 @@
         
         
         
-        <Tiempo>00:03</Tiempo>
+        <Tiempo>00:04</Tiempo>
                                                                                             
     
     
@@ -82,7 +295,7 @@
         
         
         
-        <Nombre>Jugador2</Nombre>
+        <Nombre>Jugador5</Nombre>
                                                                                         
         
         
@@ -104,7 +317,7 @@
         
         
         
-        <Tiempo>00:05</Tiempo>
+        <Tiempo>00:03</Tiempo>
                                                                                     
     
     
@@ -136,7 +349,7 @@
         
         
         
-        <Nombre>Jugador3</Nombre>
+        <Nombre>Jugador6</Nombre>
                                                                                 
         
         
@@ -146,7 +359,7 @@
         
         
         
-        <EnemigosDerrotados>0</EnemigosDerrotados>
+        <EnemigosDerrotados>2</EnemigosDerrotados>
                                                                                 
         
         
@@ -156,7 +369,7 @@
         
         
         
-        <Tiempo>00:05</Tiempo>
+        <Tiempo>00:07</Tiempo>
                                                                             
     
     
@@ -185,7 +398,7 @@
         
         
         
-        <Nombre>Jugador4</Nombre>
+        <Nombre>Jugador7</Nombre>
                                                                         
         
         
@@ -194,7 +407,7 @@
         
         
         
-        <EnemigosDerrotados>0</EnemigosDerrotados>
+        <EnemigosDerrotados>2</EnemigosDerrotados>
                                                                         
         
         
@@ -203,7 +416,7 @@
         
         
         
-        <Tiempo>00:05</Tiempo>
+        <Tiempo>00:07</Tiempo>
                                                                     
     
     
@@ -229,7 +442,7 @@
         
         
         
-        <Nombre>Jugador5</Nombre>
+        <Nombre>Jugador8</Nombre>
                                                                 
         
         
@@ -237,7 +450,7 @@
         
         
         
-        <EnemigosDerrotados>0</EnemigosDerrotados>
+        <EnemigosDerrotados>2</EnemigosDerrotados>
                                                                 
         
         
@@ -245,7 +458,7 @@
         
         
         
-        <Tiempo>00:05</Tiempo>
+        <Tiempo>00:11</Tiempo>
                                                             
     
     
@@ -268,21 +481,21 @@
         
         
         
-        <Nombre>Jugador6</Nombre>
+        <Nombre>Jugador9</Nombre>
                                                         
         
         
         
         
         
-        <EnemigosDerrotados>0</EnemigosDerrotados>
+        <EnemigosDerrotados>2</EnemigosDerrotados>
                                                         
         
         
         
         
         
-        <Tiempo>00:05</Tiempo>
+        <Tiempo>00:11</Tiempo>
                                                     
     
     
@@ -302,19 +515,19 @@
         
         
         
-        <Nombre>Jugador7</Nombre>
+        <Nombre>Jugador10</Nombre>
                                                 
         
         
         
         
-        <EnemigosDerrotados>0</EnemigosDerrotados>
+        <EnemigosDerrotados>2</EnemigosDerrotados>
                                                 
         
         
         
         
-        <Tiempo>00:05</Tiempo>
+        <Tiempo>00:11</Tiempo>
                                             
     
     
@@ -331,17 +544,17 @@
         
         
         
-        <Nombre>Jugador8</Nombre>
+        <Nombre>Jugador11</Nombre>
                                         
         
         
         
-        <EnemigosDerrotados>0</EnemigosDerrotados>
+        <EnemigosDerrotados>2</EnemigosDerrotados>
                                         
         
         
         
-        <Tiempo>00:05</Tiempo>
+        <Tiempo>00:11</Tiempo>
                                     
     
     
@@ -355,15 +568,15 @@
                                 
         
         
-        <Nombre>Jugador9</Nombre>
+        <Nombre>Jugador12</Nombre>
                                 
         
         
-        <EnemigosDerrotados>0</EnemigosDerrotados>
+        <EnemigosDerrotados>2</EnemigosDerrotados>
                                 
         
         
-        <Tiempo>00:05</Tiempo>
+        <Tiempo>00:11</Tiempo>
                             
     
     
@@ -374,13 +587,13 @@
     <personaje>
                         
         
-        <Nombre>Jugador10</Nombre>
+        <Nombre>Jugador13</Nombre>
                         
         
         <EnemigosDerrotados>0</EnemigosDerrotados>
                         
         
-        <Tiempo>00:05</Tiempo>
+        <Tiempo>00:03</Tiempo>
                     
     
     </personaje>
@@ -388,17 +601,17 @@
     
     <personaje>
                 
-        <Nombre>Jugador11</Nombre>
+        <Nombre>Jugador14</Nombre>
                 
         <EnemigosDerrotados>0</EnemigosDerrotados>
                 
-        <Tiempo>00:05</Tiempo>
+        <Tiempo>00:06</Tiempo>
             
     </personaje>
     
     <personaje>
-        <Nombre>Jugador12</Nombre>
+        <Nombre>Jugador15</Nombre>
         <EnemigosDerrotados>0</EnemigosDerrotados>
-        <Tiempo>00:05</Tiempo>
+        <Tiempo>00:06</Tiempo>
     </personaje>
 </personajes>

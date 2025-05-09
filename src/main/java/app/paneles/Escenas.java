@@ -33,6 +33,7 @@ public class Escenas extends Pane {
     public void setGameOver(){
         stage.setScene(gameOver);
         act = gameOver;
+        Util.pararJuego();
     }
 
     public Scene getAct(){

@@ -21,13 +21,14 @@ public class Personaje extends Rectangle {
 
     public Personaje() {
         super(550, 350, 20, 20); //Posicion X, Posicion Y, Tamaño X, Tamaño Y
+        pers = this;
         moverPj();
         panel = PanelJuego.getPanel(); //Para enlazar el jugador con el panel
         setFill(Color.CHOCOLATE); //Color
         ponerEnAccion();
-        pers = this;
         cargador = 5;
         System.out.println("Me he creado");
+        Vida.getVidas();
     }
 
     public static Personaje getPers(){
@@ -38,10 +39,9 @@ public class Personaje extends Rectangle {
     }
 
     public void reiniciarPJ(){
-        setLayoutX(550);
-        setLayoutY(350);
         Vida.reiniciarVidas();
         setRotate(90);
+        getPers();
     }
 
     public String getNombre(){

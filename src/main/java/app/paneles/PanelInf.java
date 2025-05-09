@@ -19,7 +19,7 @@ public class PanelInf extends HBox {
         setStyle("-fx-background-color: GRAY");//Le ponemos un color mediante un comando de CSS
         panel = this;
         vidas = Vida.getVidas();
-        montarEscena(); //Añado la puntuación al panel y la centro
+        montarEscena();
     }
 
     private void montarEscena() {

@@ -20,7 +20,6 @@ public class PanelJuego extends Pane {
         setPrefSize(1200, 800);
         pj = Personaje.getPers();
         montarEscena();
-        GestorEnemigos.comenzar();
     }
 
     private void montarEscena() {

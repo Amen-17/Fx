@@ -31,8 +31,8 @@ public class Menu extends Pane {
         // Botón que inicia el juego
         Boton botonIniciar = new Boton("Iniciar Juego",450, 300,() -> {
                     Escenas.getEscena().setPanelPri();
-                    Personaje pj = Personaje.getPers();
                     Util.iniciarJuego();
+                    Personaje.getPers().rotacionRaton(Escenas.getEscena().getAct());
                     Tiempo t = Tiempo.getTiempoTotal();
                     t.iniciarCronometro();
                 }

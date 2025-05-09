@@ -84,13 +84,14 @@ public class GestorEnemigos {
     }
 
     public static void detener(){
-        t.stop();
         matarEnemigos();
+        t.stop();
     }
 
     private static void matarEnemigos(){
         for (Enemigo e:lista){
             e.muerte();
+            System.out.println("Uno muerto");
         }
     }
 }

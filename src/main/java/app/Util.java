@@ -1,7 +1,9 @@
 package app;
 
+import app.enemigo.Enemigo;
 import app.enemigo.GestorEnemigos;
 import app.personaje.Personaje;
+import app.personaje.Vida;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -23,11 +25,13 @@ public class Util {
     }
 
     public static void iniciarJuego(){
-        GestorEnemigos.comenzar();
         Personaje.getPers().reiniciarPJ();
+        GestorEnemigos.comenzar();
+        Vida.getVidas();
     }
     public static void pararJuego(){
         GestorEnemigos.detener();
         Personaje.getAni().stop();
+        System.out.println("Se ha parado el juego");
     }
 }
