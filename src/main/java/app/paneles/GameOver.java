@@ -33,6 +33,7 @@ public class GameOver extends Pane {
         }
 
         Boton botonIniciar = new Boton("Volver al Juego", 450, 300, () -> {
+            Escenas.getEscena().setPanelPri();
             Util.iniciarJuego();
         });
 

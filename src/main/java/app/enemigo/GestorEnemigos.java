@@ -89,9 +89,9 @@ public class GestorEnemigos {
     }
 
     private static void matarEnemigos(){
-        for (Enemigo e:lista){
-            e.muerte();
-            System.out.println("Uno muerto");
+        //Si esto fuese un for each daría una excepción, no entiendo nada :O
+        for (int cont = 0 ; cont <lista.size();cont++){
+            lista.get(cont).muerte();
         }
     }
 }
