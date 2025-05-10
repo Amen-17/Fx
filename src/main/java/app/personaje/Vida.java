@@ -6,6 +6,7 @@ import app.datos.XML;
 import app.paneles.Escenas;
 import app.paneles.Menu;
 import app.paneles.PanelInf;
+import app.paneles.PanelPrincipal;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
@@ -41,7 +42,7 @@ public class Vida extends Rectangle {
             System.out.println("Mi indice es"+indiceAct);
             indiceAct--;
             Vida v = vidas.get(indiceAct);
-            PanelInf.getPanel().getChildren().remove(v);
+            PanelPrincipal.getPanelinf().getChildren().remove(v);
         }
 
         if (indiceAct == 0) {

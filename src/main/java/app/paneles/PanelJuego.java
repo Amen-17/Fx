@@ -15,19 +15,22 @@ public class PanelJuego extends Pane {
     /**
      * Constructor del panel, agrega el personaje al panel y comienza la generación de enemigos.
      */
-    public PanelJuego(){
+    private PanelJuego(){
         panel = this; //Guardamos dentro de esta variable el objeto que se guarde
         setPrefSize(1200, 800);
         pj = Personaje.getPers();
         montarEscena();
     }
 
-    private void montarEscena() {
-        getChildren().add(pj); //Para añadir el personaje al panel
+    public static PanelJuego getPanelJuego(){
+        if (panel == null){
+            panel = new PanelJuego();
+        }
+        return panel;
     }
 
-    public static PanelJuego getPanel(){
-        return panel;
+    private void montarEscena() {
+        getChildren().add(pj); //Para añadir el personaje al panel
     }
 
 }

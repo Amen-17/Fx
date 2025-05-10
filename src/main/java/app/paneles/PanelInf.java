@@ -14,12 +14,18 @@ public class PanelInf extends HBox {
     private ArrayList<Vida> vidas;
     private static PanelInf panel;
 
-    public PanelInf(){
+    private PanelInf(){
         p=Puntuacion.getPuntuacion();
         setStyle("-fx-background-color: GRAY");//Le ponemos un color mediante un comando de CSS
-        panel = this;
         vidas = Vida.getVidas();
         montarEscena();
+    }
+
+    public static PanelInf getPanelinf(){
+        if (panel == null){
+            panel = new PanelInf();
+        }
+        return panel;
     }
 
     private void montarEscena() {
@@ -32,11 +38,6 @@ public class PanelInf extends HBox {
         getChildren().add(espacio);
         getChildren().add(p);
         setAlignment(Pos.CENTER);
-
-    }
-
-    public static PanelInf getPanel(){
-        return panel;
     }
 
 }

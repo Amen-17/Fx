@@ -18,7 +18,7 @@ public class GestorEnemigos {
      */
     public static void comenzar() {
         lista = new ArrayList<>();
-        panel = PanelJuego.getPanel();
+        panel = PanelJuego.getPanelJuego();
         t = new AnimationTimer() {
             @Override
             public void handle(long l) {

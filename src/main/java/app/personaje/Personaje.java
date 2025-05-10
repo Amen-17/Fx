@@ -23,7 +23,7 @@ public class Personaje extends Rectangle {
         super(550, 350, 20, 20); //Posicion X, Posicion Y, Tamaño X, Tamaño Y
         pers = this;
         moverPj();
-        panel = PanelJuego.getPanel(); //Para enlazar el jugador con el panel
+        panel = PanelJuego.getPanelJuego(); //Para enlazar el jugador con el panel
         setFill(Color.CHOCOLATE); //Color
         ponerEnAccion();
         cargador = 5;

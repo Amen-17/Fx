@@ -5,14 +5,16 @@ import app.personaje.Personaje;
 import javafx.scene.layout.BorderPane;
 
 public class PanelPrincipal extends BorderPane {
+    private static PanelInf panelinf;
 
     public PanelPrincipal(){
-        setCenter(new PanelJuego());
-        setBottom(new PanelInf());
+        setCenter(PanelJuego.getPanelJuego());
+        setBottom(PanelInf.getPanelinf());
+        panelinf = PanelInf.getPanelinf();
     }
 
-    public static void empezarJuego(){
-        GestorEnemigos.comenzar();
-        Personaje.getPers().reiniciarPJ();
+    public static PanelInf getPanelinf(){
+        return panelinf;
     }
+
 }

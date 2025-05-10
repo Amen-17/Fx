@@ -32,7 +32,7 @@ public abstract class Enemigo extends Rectangle {
         super(poX, poY, tamX, tamY);
         this.vida = vida;
         this.velocidad = velocidad;
-        panel = PanelJuego.getPanel();
+        panel = PanelJuego.getPanelJuego();
         if (dificultad <= 1) dificultad += 0.01;
     }
 

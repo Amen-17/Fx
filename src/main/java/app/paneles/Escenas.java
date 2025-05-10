@@ -15,9 +15,9 @@ public class Escenas extends Pane {
 
     private Escenas(){
         stage = Util.getStage();
-        panelPri = new Scene(new PanelPrincipal());
-        gameOver = new Scene(new GameOver(stage));
-        menu = new Scene(new Menu(stage));
+        panelPri = new Scene(new PanelPrincipal(),1200,800);
+        gameOver = new Scene(new GameOver(stage),1200,800);
+        menu = new Scene(new Menu(stage),1200,800);
     }
 
     public void setPanelPri(){

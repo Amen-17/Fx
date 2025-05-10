@@ -3,6 +3,7 @@ package app.paneles;
 import app.Util;
 import app.datos.HistorialPartidas;
 import app.datos.Partida;
+import app.enemigo.GestorEnemigos;
 import app.personaje.Personaje;
 import app.personaje.Tiempo;
 import app.personaje.Vida;
@@ -33,6 +34,13 @@ public class Menu extends Pane {
                     Escenas.getEscena().setPanelPri();
                     Util.iniciarJuego();
                     Personaje.getPers().rotacionRaton(Escenas.getEscena().getAct());
+
+//                    Scene escenaJuego = new Scene(PanelPrincipal.getPanelPrincipal(), 1200, 800);
+//                    stage.setScene(escenaJuego);
+//                    Personaje pj = Personaje.getPers();
+//                    pj.rotacionRaton(escenaJuego);
+//                    GestorEnemigos.comenzar();
+
                     Tiempo t = Tiempo.getTiempoTotal();
                     t.iniciarCronometro();
                 }
