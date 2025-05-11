@@ -92,6 +92,7 @@ public class GestorEnemigos {
         //Si esto fuese un for each daría una excepción, no entiendo nada :O
         for (int cont = 0 ; cont <lista.size();cont++){
             lista.get(cont).muerte();
+            System.out.println("Enemigo muerto");
         }
     }
 }

@@ -48,7 +48,7 @@ public abstract class Enemigo extends Rectangle {
 
     protected void muerte(){
         panel.getChildren().remove(this);//Borramos el enemigo
-        GestorEnemigos.getLista().remove(this);//Borramos de la lista los que se salen de la pantalla
+        GestorEnemigos.getLista().remove(this);//Borramos de la lista
         t.stop(); //Paramos su animación
     }
 

@@ -41,7 +41,14 @@ public class Personaje extends Rectangle {
     public void reiniciarPJ(){
         Vida.reiniciarVidas();
         setRotate(90);
+        setLayoutY(0);
+        setLayoutX(0);
         getPers();
+        getAni().start();
+        movAbj = false;
+        movArr = false;
+        movDch = false;
+        movIzq = false;
     }
 
     public String getNombre(){

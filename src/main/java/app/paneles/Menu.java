@@ -1,18 +1,9 @@
 package app.paneles;
 
 import app.Util;
-import app.datos.HistorialPartidas;
-import app.datos.Partida;
-import app.enemigo.GestorEnemigos;
 import app.personaje.Personaje;
 import app.personaje.Tiempo;
-import app.personaje.Vida;
-import com.almasb.fxgl.ui.UI;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.scene.Scene;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 
