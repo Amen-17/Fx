@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <personajes>
-    <personaje>
-        <Nombre>Jugador1</Nombre>
-        <EnemigosDerrotados>11</EnemigosDerrotados>
-        <Tiempo>00:09</Tiempo>
-    </personaje>
+  <personaje>
+    <Nombre>Jugador7</Nombre>
+    <EnemigosDerrotados>9</EnemigosDerrotados>
+    <Tiempo>00:15</Tiempo>
+  </personaje>
 </personajes>

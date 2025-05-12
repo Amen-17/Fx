@@ -3,6 +3,7 @@ package app.paneles;
 import app.Util;
 import app.datos.HistorialPartidas;
 import app.datos.Partida;
+import app.personaje.Tiempo;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -12,6 +13,9 @@ import javafx.stage.Stage;
 public class GameOver extends Pane {
     private static GameOver gameOver;
 
+    /**
+     *Crea un panel que indica el final del juego, y deja salir o empezar de nuevo
+    */
     public GameOver(Stage stage) {
         setPrefSize(1200, 800);
         setStyle("-fx-background-color: linear-gradient(to bottom, #000000, #4b0000);");
@@ -34,6 +38,7 @@ public class GameOver extends Pane {
         Boton botonIniciar = new Boton("Volver al Juego", 450, 300, () -> {
             Escenas.getEscena().setPanelPri();
             Util.iniciarJuego();
+            Tiempo.iniciarCronometro();
         });
 
         Boton botonSalir = new Boton("Salir", 450, 430, stage::close);

@@ -1,5 +1,7 @@
 package app.datos;
 
+import app.personaje.Tiempo;
+
 public class Partida { //me ayuda a leer el xml
     private String nombre;
     private int puntuacion;
@@ -19,12 +21,12 @@ public class Partida { //me ayuda a leer el xml
         return puntuacion;
     }
 
-    public String getTiempo() {
-        return tiempo;
-    }
+//    public String getTiempo() {
+//        return tiempo;
+//    }
 
     @Override
     public String toString() {
-        return "Nombre: " + nombre + ", Puntos: " + puntuacion + ", Tiempo: " + tiempo;
+        return "Nombre: " + getNombre() + ", Puntos: " + getPuntuacion() + ", Tiempo: " + Tiempo.getTiempoMinSeg();
     }
 }

@@ -61,6 +61,7 @@ public class XML {
 
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
         transformer.transform(new DOMSource(doc), new StreamResult(archivo));
         System.out.println("Partida guardada en: " + archivo.getAbsolutePath());
     }

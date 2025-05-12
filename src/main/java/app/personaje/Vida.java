@@ -1,5 +1,6 @@
 package app.personaje;
 
+import app.Util;
 import app.datos.XML;
 import app.paneles.Escenas;
 import app.paneles.PanelPrincipal;
@@ -41,9 +42,9 @@ public class Vida extends Rectangle {
         }
 
         if (indiceAct == 0) {
-            Tiempo tiempo = Tiempo.getTiempoTotal();
+            Tiempo tiempo = Tiempo.detenerCronometro(); //voy a movertodo esto al gameover mas adelante
             Puntuacion puntuacion = Puntuacion.getPuntuacion();
-            tiempo.detenerCronometro();
+            tiempo.getTiemTot();
             muerto = true;
             try {
                 XML xml = new XML(puntuacion, tiempo);
@@ -53,6 +54,7 @@ public class Vida extends Rectangle {
             }
 
             Escenas.getEscena().setGameOver();
+            Util.pararJuego();
         }
     }
 

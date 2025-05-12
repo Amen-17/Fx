@@ -2,6 +2,7 @@ package app;
 
 import app.enemigo.GestorEnemigos;
 import app.personaje.Personaje;
+import app.personaje.Tiempo;
 import app.personaje.Vida;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -30,6 +31,7 @@ public class Util {
         Personaje.getPers().reiniciarPJ();
         GestorEnemigos.comenzar();
         Vida.getVidas();
+        Tiempo.iniciarCronometro();
     }
     public static void pararJuego(){
         GestorEnemigos.detener();
