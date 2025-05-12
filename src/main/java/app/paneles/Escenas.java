@@ -12,12 +12,14 @@ public class Escenas extends Pane {
     private Scene menu;
     private Scene act;
     private static Escenas e;
+    private Scene pausa;
 
     private Escenas(){
         stage = Util.getStage();
         panelPri = new Scene(new PanelPrincipal(),1200,800);
         gameOver = new Scene(new GameOver(stage),1200,800);
         menu = new Scene(new Menu(stage),1200,800);
+        pausa = new Scene(new Pausa(stage), 1200, 800);
     }
 
     public void setPanelPri(){

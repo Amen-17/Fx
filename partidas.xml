@@ -1,8 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <personajes>
+        
+  
+  
   <personaje>
+                
+    
+    
     <Nombre>Jugador7</Nombre>
+                
+    
+    
     <EnemigosDerrotados>9</EnemigosDerrotados>
+                
+    
+    
     <Tiempo>00:15</Tiempo>
+              
+  
+  
+  </personaje>
+      
+  
+  
+  <personaje>
+            
+    
+    <Nombre>Jugador2</Nombre>
+            
+    
+    <EnemigosDerrotados>0</EnemigosDerrotados>
+            
+    
+    <Tiempo>00:00</Tiempo>
+          
+  
+  </personaje>
+    
+  
+  <personaje>
+        
+    <Nombre>Jugador3</Nombre>
+        
+    <EnemigosDerrotados>0</EnemigosDerrotados>
+        
+    <Tiempo>00:00</Tiempo>
+      
+  </personaje>
+  
+  <personaje>
+    <Nombre>Jugador4</Nombre>
+    <EnemigosDerrotados>1</EnemigosDerrotados>
+    <Tiempo>00:06</Tiempo>
   </personaje>
 </personajes>

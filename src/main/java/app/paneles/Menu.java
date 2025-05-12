@@ -32,8 +32,11 @@ public class Menu extends Pane {
 //                    pj.rotacionRaton(escenaJuego);
 //                    GestorEnemigos.comenzar();
 
-                    Tiempo t = Tiempo.getTiempoTotal();
-                    t.iniciarCronometro();
+//                    Tiempo t = Tiempo.getTiempoTotal(); //si sustituyo esto por Tiempo.detenercronometro me peta
+//                    t.iniciarCronometro();
+
+                        Tiempo.detenerCronometro();
+                        Tiempo.getTiempoTotal();
                 }
         );
 
