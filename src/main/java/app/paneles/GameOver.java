@@ -3,7 +3,6 @@ package app.paneles;
 import app.Util;
 import app.datos.HistorialPartidas;
 import app.datos.Partida;
-import app.personaje.Vida;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;

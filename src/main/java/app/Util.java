@@ -1,6 +1,5 @@
 package app;
 
-import app.enemigo.Enemigo;
 import app.enemigo.GestorEnemigos;
 import app.personaje.Personaje;
 import app.personaje.Vida;

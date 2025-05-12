@@ -1,6 +1,5 @@
 package app.datos;
 
-import app.Main;
 import app.Util;
 import app.personaje.Puntuacion;
 import app.personaje.Tiempo;

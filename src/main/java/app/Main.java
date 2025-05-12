@@ -1,11 +1,7 @@
 package app;
 
 import app.paneles.Escenas;
-import app.paneles.Menu;
-import app.personaje.Personaje;
-import app.personaje.Vida;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.File;
