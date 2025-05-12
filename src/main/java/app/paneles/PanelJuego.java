@@ -1,5 +1,6 @@
 package app.paneles;
 
+import app.Util;
 import app.personaje.Personaje;
 import app.enemigo.GestorEnemigos;
 import javafx.scene.Scene;
@@ -30,6 +31,7 @@ public class PanelJuego extends Pane {
     }
 
     private void montarEscena() {
+        Util.llenarFondoConBaldosas(this,1200,800);
         getChildren().add(pj); //Para añadir el personaje al panel
     }
 

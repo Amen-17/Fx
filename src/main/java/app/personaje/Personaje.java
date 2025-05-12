@@ -5,9 +5,11 @@ import app.paneles.PanelJuego;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Bounds;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
 public class Personaje extends Rectangle {
@@ -18,9 +20,10 @@ public class Personaje extends Rectangle {
     private int cargador;
     private String nombre;
     private static AnimationTimer t;
+    private Image img = new Image("file:src/main/java/app/imgs/PosPj.png");
 
     public Personaje() {
-        super(550, 350, 20, 20); //Posicion X, Posicion Y, Tamaño X, Tamaño Y
+        super(550, 350, 70, 70); //Posicion X, Posicion Y, Tamaño X, Tamaño Y
         pers = this;
         moverPj();
         panel = PanelJuego.getPanelJuego(); //Para enlazar el jugador con el panel
@@ -29,6 +32,7 @@ public class Personaje extends Rectangle {
         cargador = 5;
         System.out.println("Me he creado");
         Vida.getVidas();
+        setFill(new ImagePattern(img));
     }
 
     public static Personaje getPers(){

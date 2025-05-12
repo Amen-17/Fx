@@ -4,6 +4,9 @@ import app.enemigo.Enemigo;
 import app.enemigo.GestorEnemigos;
 import app.personaje.Personaje;
 import app.personaje.Vida;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -33,5 +36,21 @@ public class Util {
         GestorEnemigos.detener();
         Personaje.getAni().stop();
         System.out.println("Se ha parado el juego");
+    }
+
+    public static void llenarFondoConBaldosas(Pane root, double ancho, double alto) {
+        Image baldosa = new Image("file:src/main/java/app/imgs/Fondo.jpg");
+
+        double tileWidth = baldosa.getWidth();
+        double tileHeight = baldosa.getHeight();
+
+        for (double y = 0; y < alto; y += tileHeight) {
+            for (double x = 0; x < ancho; x += tileWidth) {
+                ImageView tile = new ImageView(baldosa);
+                tile.setLayoutX(x);
+                tile.setLayoutY(y);
+                root.getChildren().add(tile);
+            }
+        }
     }
 }
