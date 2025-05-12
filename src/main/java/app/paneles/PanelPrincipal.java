@@ -1,7 +1,5 @@
 package app.paneles;
 
-import app.enemigo.GestorEnemigos;
-import app.personaje.Personaje;
 import javafx.scene.layout.BorderPane;
 
 public class PanelPrincipal extends BorderPane {

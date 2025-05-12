@@ -1,16 +1,11 @@
 package app.personaje;
 
-import app.Main;
-import app.Util;
 import app.datos.XML;
 import app.paneles.Escenas;
-import app.paneles.Menu;
-import app.paneles.PanelInf;
 import app.paneles.PanelPrincipal;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
