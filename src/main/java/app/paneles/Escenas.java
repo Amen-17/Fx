@@ -16,13 +16,14 @@ public class Escenas extends Pane {
 
     private Escenas(){
         stage = Util.getStage();
-        panelPri = new Scene(new PanelPrincipal(),1200,800);
-        gameOver = new Scene(new GameOver(stage),1200,800);
+
+
         menu = new Scene(new Menu(stage),1200,800);
         pausa = new Scene(new Pausa(stage), 1200, 800);
     }
 
     public void setPanelPri(){
+        panelPri = new Scene(new PanelPrincipal(),1200,800);
         stage.setScene(panelPri);
         act = panelPri;
     }
@@ -33,9 +34,15 @@ public class Escenas extends Pane {
     }
 
     public void setGameOver(){
+        gameOver = new Scene(new GameOver(stage),1200,800);
         stage.setScene(gameOver);
         act = gameOver;
         Util.pararJuego();
+    }
+
+    public void setPausa(){
+        stage.setScene(pausa);
+        act = panelPri;
     }
 
     public Scene getAct(){

@@ -3,6 +3,7 @@ package app.paneles;
 import app.Util;
 import app.datos.HistorialPartidas;
 import app.datos.Partida;
+import app.personaje.Personaje;
 import app.personaje.Tiempo;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -38,6 +39,7 @@ public class GameOver extends Pane {
         Boton botonIniciar = new Boton("Volver al Juego", 450, 300, () -> {
             Escenas.getEscena().setPanelPri();
             Util.iniciarJuego();
+            Personaje.getPers().rotacionRaton(Escenas.getEscena().getAct());
             Tiempo.iniciarCronometro();
         });
 

@@ -1,6 +1,7 @@
 package app.personaje;
 
 import app.Disparo;
+import app.paneles.Escenas;
 import app.paneles.PanelJuego;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Bounds;
@@ -81,6 +82,9 @@ public class Personaje extends Rectangle {
             }
             if (e.getCode() == KeyCode.S || e.getCode() == KeyCode.DOWN) {
                 movAbj = true;
+            }
+            if (e.getCode() == KeyCode.P || e.getCode() == KeyCode.DOWN) {
+                Escenas.getEscena().setPausa();
             }
         });
         this.setOnKeyReleased(e -> {

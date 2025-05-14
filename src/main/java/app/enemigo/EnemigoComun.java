@@ -2,10 +2,12 @@ package app.enemigo;
 
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Bounds;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 
 public class EnemigoComun extends Enemigo {
-    Bounds pocEneCom;
+    private Bounds pocEneCom;
 
     public EnemigoComun() {
         super(Math.random()*1150, -50, 50, 50, 1, (Math.random()*2)*dificultad);
@@ -17,6 +19,8 @@ public class EnemigoComun extends Enemigo {
         super(poX, poY, 50, 50, 1, (Math.random()*2)+dificultad);
         setFill(Color.RED);
         atacar();
+        imagen = new Image("file:src/main/java/app/imgs/EnemiCom.png");
+        setFill(new ImagePattern(imagen));
     }
 
     @Override

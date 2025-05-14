@@ -27,7 +27,7 @@ public class Disparo extends Rectangle {
         panel = PanelJuego.getPanelJuego();
         propietario = prop;
         enPantalla = true;
-        setFill(Color.RED);
+        setFill(Color.YELLOW);
         trayectoria();
         if (prop) nDisparos++; //Solo contamos los disparos si son del Personaje
         velocidad = 4;

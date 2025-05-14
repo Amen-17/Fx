@@ -26,7 +26,7 @@ public class PanelJuego extends Pane {
     }
 
     private void montarEscena() {
-        Util.llenarFondoConBaldosas(this,1200,800);
+        Util.pintarSuelo(this,1200,800);
         getChildren().add(pj); //Para añadir el personaje al panel
     }
 

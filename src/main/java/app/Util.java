@@ -10,6 +10,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Util {
 
@@ -39,15 +41,20 @@ public class Util {
         System.out.println("Se ha parado el juego");
     }
 
-    public static void llenarFondoConBaldosas(Pane root, double ancho, double alto) {
-        Image baldosa = new Image("file:src/main/java/app/imgs/Fondo.jpg");
+    public static void pintarSuelo(Pane root, double ancho, double alto) {
+        ArrayList<Image> suelo = new ArrayList<>();
+        suelo.add(new Image("file:src/main/java/app/imgs/Baldosa1.png"));
+        suelo.add((new Image("file:src/main/java/app/imgs/Baldosa2.png")));
+        suelo.add((new Image("file:src/main/java/app/imgs/Baldosa3.png")));
+        suelo.add((new Image("file:src/main/java/app/imgs/Baldosa3.png")));
 
-        double tileWidth = baldosa.getWidth();
-        double tileHeight = baldosa.getHeight();
+        double tileWidth = suelo.getFirst().getWidth();
+        double tileHeight = suelo.getFirst().getHeight();
 
-        for (double y = 0; y < alto; y += tileHeight) {
-            for (double x = 0; x < ancho; x += tileWidth) {
-                ImageView tile = new ImageView(baldosa);
+        for (double y = 0; y < alto; y += tileWidth ){
+            for (double x = 0; x < ancho; x += tileHeight) {
+                Random aleatorio = new Random();
+                ImageView tile = new ImageView(suelo.get(aleatorio.nextInt(suelo.size())));
                 tile.setLayoutX(x);
                 tile.setLayoutY(y);
                 root.getChildren().add(tile);

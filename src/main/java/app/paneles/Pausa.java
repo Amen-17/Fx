@@ -14,9 +14,7 @@ public class Pausa extends Pane {
 
     public Pausa(Stage stage){
         setPrefSize(1200, 800);
-        setStyle("-fx-background-color: rgba(0, 0, 0, 0.5);");
-
-
+        setStyle("-fx-background-color: rgba(0,0,0,0.02);");
 
         Boton continuar = new Boton("Continuar", 450, 300, () ->{
         Escenas.getEscena().setPanelPri();
