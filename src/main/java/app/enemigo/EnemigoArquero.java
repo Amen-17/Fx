@@ -4,7 +4,9 @@ import app.Disparo;
 import app.personaje.Personaje;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Bounds;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 
 public class EnemigoArquero extends Enemigo {
 
@@ -12,6 +14,9 @@ public class EnemigoArquero extends Enemigo {
     private static long tDisp = 800_000_000;
     private long tAnter; //Al ser diferentes objetos no puede ser static ya que cada uno necesita su variable separada.
 
+    /**
+     * Constructor básico de la clase EnemigoArquero
+     */
     public EnemigoArquero() {
         super(Math.random() * 1150, -50, 50, 50, 1, 2);
         atacar();
@@ -27,8 +32,8 @@ public class EnemigoArquero extends Enemigo {
     public EnemigoArquero(double poX, double poY) {
         super(poX, poY, 50, 50, 1, 3);
         atacar();
-        setFill(Color.BLUE);
-        System.out.println("Soy un arquero spawneando en: " + poX + " " + poY);
+        imagen = new Image("file:src/main/java/app/imgs/EneArq.png");
+        setFill(new ImagePattern(imagen));
     }
 
     /**
@@ -60,11 +65,7 @@ public class EnemigoArquero extends Enemigo {
                             tAnter = l; // Almacena los nanosegundos actuales en el momento del disparo.
                         }
                     } else {
-//                        if (!GestorEnemigos.comprobarColisiones(EnemigoArquero.this)){
                             EnemigoArquero.super.atacar();
-//                            System.out.println("Si me quiero mover");
-//                        }else System.out.println("No me quiero mover");
-
                     }
                 }
                 EnemigoArquero.super.comprobarMuerte();

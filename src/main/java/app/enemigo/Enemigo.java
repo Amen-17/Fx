@@ -46,6 +46,9 @@ public abstract class Enemigo extends Rectangle {
         }
     }
 
+    /**
+     * El enemigo que llame a este metodo "morirá", desaparecerá de la lista, del panel y se parará su animación.
+     */
     protected void muerte(){
         panel.getChildren().remove(this);//Borramos el enemigo
         GestorEnemigos.getLista().remove(this);//Borramos de la lista
@@ -57,55 +60,34 @@ public abstract class Enemigo extends Rectangle {
      */
     // Mejorar todas las variables que he hecho
     protected void atacar() {
-        // Obtener la posición absoluta del personaje en la escena
-        Bounds posPJ = Personaje.getPos();
-        double personajeX = posPJ.getMinX() + posPJ.getWidth() / 2;
-        double personajeY = posPJ.getMinY() + posPJ.getHeight() / 2;
-
-        // Obtener la posición del enemigo
         Bounds posEneAct = localToScene(getBoundsInLocal());
-        double enemigoX = posEneAct.getCenterX();
-        double enemigoY = posEneAct.getCenterY();
 
-        //Calcula la diferencia entre las coordenanas X e Y
-        double deltaX = personajeX - enemigoX;
-        double deltaY = personajeY - enemigoY;
+        double deltaX = Personaje.getPos().getCenterX() - posEneAct.getCenterX();
+        double deltaY = Personaje.getPos().getCenterY() - posEneAct.getCenterY();
 
-        // Calcula la distancia mediante el calculo de la hipotenusa.
         double distancia = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
 
-        // Normalizar el vector para que la velocidad sea constante
         double movX = (deltaX / distancia) * velocidad;
         double movY = (deltaY / distancia) * velocidad;
 
         setLayoutX(getLayoutX() + movX);
         setLayoutY(getLayoutY() + movY);
 
-        //Obtiene la posicion del enemigo y comprueba si se choca con el personaje.
         comprobarMuerte();
     }
 
     /**
      * Rota su eje en base a la posición del Personaje
      */
-    // Mejorar todas las variables que he hecho
     protected void rotar(){
-
-        Bounds posPj = Personaje.getPos();
         Bounds posEneAct = localToScene(getBoundsInLocal());
-        double personajeX = posPj.getMinX() + posPj.getWidth() / 2;
-        double personajeY = posPj.getMinY() + posPj.getHeight() / 2;
-        double enemigoX = posEneAct.getCenterX();
-        double enemigoY = posEneAct.getCenterY();
 
-        // Calcular la dirección
-        double deltaX = personajeX - enemigoX;
-        double deltaY = personajeY - enemigoY;
-        // Calcular el ángulo de rotación en radianes y convertirlo a grados
+        double deltaX = Personaje.getPos().getCenterX() - posEneAct.getCenterX();
+        double deltaY = Personaje.getPos().getCenterY() - posEneAct.getCenterY();
+
         double anguloRadianes = Math.atan2(deltaY, deltaX);
         double anguloGrados = Math.toDegrees(anguloRadianes);
 
-        // Aplicar la rotación al enemigo
         setRotate(anguloGrados);
     }
 
@@ -119,6 +101,10 @@ public abstract class Enemigo extends Rectangle {
 
     public void reducirVida() {
         vida--;
+    }
+
+    public static double getDiff(){
+        return dificultad;
     }
 
     public abstract Bounds getPosc();

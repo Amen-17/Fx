@@ -23,19 +23,24 @@ public class Personaje extends Rectangle {
     private static AnimationTimer t;
     private Image img = new Image("file:src/main/java/app/imgs/PosPj.png");
 
+
+    /**
+     * Constructor básico del Personaje.
+     */
     public Personaje() {
         super(550, 350, 70, 70); //Posicion X, Posicion Y, Tamaño X, Tamaño Y
         pers = this;
-        moverPj();
         panel = PanelJuego.getPanelJuego(); //Para enlazar el jugador con el panel
-        setFill(Color.CHOCOLATE); //Color
+        moverPj();
         ponerEnAccion();
         cargador = 5;
-        System.out.println("Me he creado");
-        Vida.getVidas();
         setFill(new ImagePattern(img));
     }
 
+    /**
+     * Devuelve el personaje, si es null lo crea antes.
+     * @return El personaje
+     */
     public static Personaje getPers(){
         if (pers == null){
             pers = new Personaje();
@@ -43,6 +48,9 @@ public class Personaje extends Rectangle {
         return pers;
     }
 
+    /**
+     * Reinicia el personaje
+     */
     public void reiniciarPJ(){
         Vida.reiniciarVidas();
         setRotate(90);

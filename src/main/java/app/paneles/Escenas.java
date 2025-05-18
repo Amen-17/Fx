@@ -1,4 +1,5 @@
 package app.paneles;
+
 import app.Util;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -14,43 +15,59 @@ public class Escenas extends Pane {
     private static Escenas e;
     private Scene pausa;
 
-    private Escenas(){
+    /**
+     * Constructor del gestor de Scenes.
+     */
+    private Escenas() {
         stage = Util.getStage();
-
-
-        menu = new Scene(new Menu(stage),1200,800);
+        menu = new Scene(new Menu(stage), 1200, 800);
         pausa = new Scene(new Pausa(stage), 1200, 800);
     }
 
-    public void setPanelPri(){
-        panelPri = new Scene(new PanelPrincipal(),1200,800);
+    /**
+     * Crea y enseña la escena principal.
+     */
+    public void setPanelPri() {
+        panelPri = new Scene(new PanelPrincipal(), 1200, 800);
         stage.setScene(panelPri);
         act = panelPri;
     }
 
-    public void setMenu(){
+    /**
+     * Crea y enseña la escena de menú.
+     */
+    public void setMenu() {
         stage.setScene(menu);
         act = menu;
     }
 
-    public void setGameOver(){
-        gameOver = new Scene(new GameOver(stage),1200,800);
+    /**
+     * Crea y enseña la escena de game over y para el juego.
+     */
+    public void setGameOver() {
+        gameOver = new Scene(new GameOver(stage), 1200, 800);
         stage.setScene(gameOver);
         act = gameOver;
         Util.pararJuego();
     }
 
-    public void setPausa(){
+    /**
+     * Crea y enseña la escena de pausa.
+     */
+    public void setPausa() {
         stage.setScene(pausa);
         act = panelPri;
     }
 
-    public Scene getAct(){
+    public Scene getAct() {
         return act;
     }
 
-    public static Escenas getEscena(){
-        if (e == null){
+    /**
+     * Devuelve el gestor, si es null lo crea antes.
+     */
+    public static Escenas getEscena() {
+        if (e == null) {
             e = new Escenas();
         }
         return e;

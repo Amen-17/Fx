@@ -81,16 +81,21 @@ public class GestorEnemigos {
         return lista;
     }
 
+    /**
+     * Detiene la generación de enemigos.
+     */
     public static void detener(){
         matarEnemigos();
         t.stop();
     }
 
+    /**
+     * Mata a todos los enemigos.
+     */
     private static void matarEnemigos(){
         //Si esto fuese un for each daría una excepción, no entiendo nada :O
         for (int cont = 0 ; cont <lista.size();cont++){
             lista.get(cont).muerte();
-            System.out.println("Enemigo muerto");
         }
     }
 }

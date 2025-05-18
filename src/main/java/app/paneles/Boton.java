@@ -14,12 +14,26 @@ public class Boton extends StackPane {
 
     private Runnable accion;
 
-    // Constructor original
+    /**
+     * Constructor básico de un botón.
+     * @param texto Texto que se leerá en el botón.
+     * @param x Tamaño X.
+     * @param y Tamaño Y.
+     * @param accion Acción que realizará el botón.
+     */
     public Boton(String texto, double x, double y, Runnable accion) {
         this(texto, x, y, 300, 100, accion); // Reutiliza el nuevo constructor con tamaño por defecto
     }
 
-    // Nuevo constructor con tamaño personalizado
+    /**
+     * Constructor de un botón más personalizable.
+     * @param texto Texto que se leerá en el botón.
+     * @param x Tamaño X.
+     * @param y Tmaño Y.
+     * @param ancho Ancho del botón.
+     * @param alto Alto del botón.
+     * @param accion Acción que realizará el botón.
+     */
     public Boton(String texto, double x, double y, double ancho, double alto, Runnable accion) {
         this.accion = accion;
 
