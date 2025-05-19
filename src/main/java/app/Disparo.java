@@ -21,6 +21,13 @@ public class Disparo extends Rectangle {
     private int velocidad;
     boolean propietario; //True si es del personaje, false si son de enemigos.
 
+    /**
+     * crea la accion de disparar, su diseño
+     * @param poX
+     * @param poY
+     * @param angulo
+     * @param prop
+     */
     public Disparo(double poX, double poY, double angulo,boolean prop){
         super(poX-2,poY-15,2,15);
         setRotate(angulo+90); //Hay que añadirle 90º debido a que el angulo 0º es hacia la derecha.
@@ -83,7 +90,7 @@ public class Disparo extends Rectangle {
     //Comprueba que la bala enemiga impacta en mí, pero no se bien como implementarla ni donde.
 
     /**
-     *
+     * comprueba si las balas chocaron con el personaje
      */
     public void comprobarColision(){
         if (getBoundsInParent().intersects(Personaje.getPos()) && !propietario){

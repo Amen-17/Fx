@@ -29,18 +29,31 @@ public class Util {
         return stagePrincipal;
     }
 
+    /**
+     * inicia la partida creando al personaje y generando los enemigos
+     */
     public static void iniciarJuego(){
         Personaje.getPers().reiniciarPJ();
         GestorEnemigos.comenzar();
         Vida.getVidas();
         Tiempo.iniciarCronometro();
     }
+
+    /**
+     * detiene la generacion de enemigos y al personaje
+     */
     public static void pararJuego(){
         GestorEnemigos.detener();
         Personaje.getAni().stop();
         System.out.println("Se ha parado el juego");
     }
 
+    /**
+     * utiliza las baldosaspara generar el suelo
+     * @param root
+     * @param ancho
+     * @param alto
+     */
     public static void pintarSuelo(Pane root, double ancho, double alto) {
         ArrayList<Image> suelo = new ArrayList<>();
         suelo.add(new Image("file:src/main/java/app/imgs/Baldosa1.png"));

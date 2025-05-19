@@ -1,17 +1,16 @@
 package app.paneles;
 
-import app.Util;
-import app.datos.Partida;
 import app.personaje.Tiempo;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 
 public class Pausa extends Pane {
 
+    /**
+     * detiene el juego
+     * @param stage
+     */
     public Pausa(Stage stage){
         setPrefSize(1200, 800);
         setStyle("-fx-background-color: rgba(0,0,0,0.02);");

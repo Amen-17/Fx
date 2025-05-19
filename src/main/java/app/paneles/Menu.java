@@ -1,6 +1,7 @@
 package app.paneles;
 
 import app.Util;
+import app.datos.HistorialPartidas;
 import app.personaje.Personaje;
 import app.personaje.Tiempo;
 import javafx.scene.layout.Pane;
@@ -14,6 +15,10 @@ public class Menu extends Pane {
     private static Pane gameOver;
     private static PanelPrincipal panelPrin;
 
+    /**
+     * crea la primera ventana que se ve, permite dar opcionde iniciar el juego llamando al util, o salir
+     * @param stage
+     */
     public Menu(Stage stage) {
         setPrefSize(1200, 800);
         setStyle("-fx-background-color: linear-gradient(to bottom, #1e1e2f, #38384f);");
@@ -26,6 +31,7 @@ public class Menu extends Pane {
                     Util.iniciarJuego();
                     Personaje.getPers().rotacionRaton(Escenas.getEscena().getAct());
 
+                    //el tiempo no inicia bien aqui
 //                    Scene escenaJuego = new Scene(PanelPrincipal.getPanelPrincipal(), 1200, 800);
 //                    stage.setScene(escenaJuego);
 //                    Personaje pj = Personaje.getPers();
@@ -46,5 +52,8 @@ public class Menu extends Pane {
         botones.add(botonSalir);
 
         getChildren().addAll(botones);
+
+        HistorialPartidas.top3Partidas();
+
     }
 }

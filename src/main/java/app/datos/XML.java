@@ -18,11 +18,20 @@ public class XML {
     private final Puntuacion puntuacion;
     private final Tiempo tiempo;
 
+    /**
+     * datos que tendrá el documento
+     * @param puntuacion
+     * @param tiempo
+     */
     public XML(Puntuacion puntuacion, Tiempo tiempo) {
         this.puntuacion = puntuacion;
         this.tiempo = tiempo;
     }
 
+    /**
+     * almecena los datos de las partidas
+     * @throws Exception
+     */
     public void guardarPartida() throws Exception {
         File archivo = Util.getArchivoPartidas();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

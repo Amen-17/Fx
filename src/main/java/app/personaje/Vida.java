@@ -17,12 +17,19 @@ public class Vida extends Rectangle {
     private static int indiceAct = 3;
     public static boolean muerto;
 
+    /**
+     * este metodo guarda en pantalla y representa las imagenes
+     */
     private Vida() {
         super(50, 50);
         setFill(new ImagePattern(img));
         muerto = false;
     }
 
+    /**
+     * si no se ha llamado antes a vidas se crea y se le añade 3 imagenes
+     * @return el numero devidas de ese momenro
+     */
     public static ArrayList<Vida> getVidas() {
         if (vidas == null) {
             vidas = new ArrayList<>();
@@ -33,6 +40,9 @@ public class Vida extends Rectangle {
         return vidas;
     }
 
+    /**
+     * reduce la vida quitando las imagenes a la vez, al llegar a 0 llama a Game over
+     */
     public static void reducirVida() {
         if (indiceAct > 0) {
             System.out.println("Mi indice es"+indiceAct);
@@ -42,22 +52,14 @@ public class Vida extends Rectangle {
         }
 
         if (indiceAct == 0) {
-            Tiempo tiempo = Tiempo.detenerCronometro(); //voy a movertodo esto al gameover mas adelante
-            Puntuacion puntuacion = Puntuacion.getPuntuacion();
-            tiempo.getTiemTot();
-            muerto = true;
-            try {
-                XML xml = new XML(puntuacion, tiempo);
-                xml.guardarPartida();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
             Escenas.getEscena().setGameOver();
             Util.pararJuego();
         }
     }
 
+    /**
+     * devuelve las vidas a su estado original
+     */
     public static void reiniciarVidas(){
         indiceAct = 3;
         vidas = null;

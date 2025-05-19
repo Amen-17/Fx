@@ -14,6 +14,9 @@ public class PanelInf extends HBox {
     private ArrayList<Vida> vidas;
     private static PanelInf panel;
 
+    /**
+     * genera como se veria ese panel
+     */
     private PanelInf(){
         p=Puntuacion.getPuntuacion();
         setStyle("-fx-background-color: GRAY");//Le ponemos un color mediante un comando de CSS
@@ -21,6 +24,10 @@ public class PanelInf extends HBox {
         montarEscena();
     }
 
+    /**
+     * lo devuelve y si no se ha llamado antes se crea
+     * @return
+     */
     public static PanelInf getPanelinf(){
         if (panel == null){
             panel = new PanelInf();
@@ -28,6 +35,9 @@ public class PanelInf extends HBox {
         return panel;
     }
 
+    /**
+     *
+     */
     private void montarEscena() {
         Region espacio = new Region();
         HBox.setHgrow(espacio, Priority.ALWAYS);

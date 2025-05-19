@@ -56,6 +56,10 @@ public class Boton extends StackPane {
         setOnMouseClicked(e -> accion.run());
     }
 
+    /**
+     * da una animacion al poner el raton
+     * @param e
+     */
     private void hoverEnter(MouseEvent e) {
         ScaleTransition st = new ScaleTransition(Duration.millis(200), this);
         st.setToX(1.1);
@@ -63,6 +67,10 @@ public class Boton extends StackPane {
         st.play();
     }
 
+    /**
+     * otra transicion al quitar el raton del boton
+     * @param e
+     */
     private void hoverExit(MouseEvent e) {
         ScaleTransition st = new ScaleTransition(Duration.millis(200), this);
         st.setToX(1.0);

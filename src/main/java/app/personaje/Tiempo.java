@@ -10,6 +10,9 @@ public class Tiempo {
 
     private Tiempo(){}
 
+    /**
+     * inicia el tiempo
+     */
     public static void iniciarCronometro() {
         tiempoInicio = System.currentTimeMillis(); //devuelve el tiempo que se le llamó
 
@@ -22,11 +25,19 @@ public class Tiempo {
         cronometro.start();
     }
 
+    /**
+     * detiene el cronometro
+     * @return
+     */
     public static Tiempo detenerCronometro() {
         cronometro.stop();
         return t;
     }
 
+    /**
+     * devuelve el tiempo o lo crea si no se ha hecho ya
+     * @return
+     */
     public static Tiempo getTiempoTotal() {
         if (t==null){
             t=new Tiempo();
@@ -38,6 +49,10 @@ public class Tiempo {
         return tiempoTotal;
     }
 
+    /**
+     * pasa los milisegundos a segundos y minutos
+     * @return
+     */
     public static String getTiempoMinSeg() {
         long segundosTotales = tiempoTotal / 1000;
         long minutos = segundosTotales / 60;

@@ -1,1093 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <personajes>
-                                                        
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <personaje>
-                                                                                                                
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Nombre>Jugador7</Nombre>
-                                                                                                                
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <EnemigosDerrotados>9</EnemigosDerrotados>
-                                                                                                                
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Tiempo>00:15</Tiempo>
-                                                                                                              
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </personaje>
-                                                      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <personaje>
-                                                                                                            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Nombre>Jugador2</Nombre>
-                                                                                                            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <EnemigosDerrotados>1</EnemigosDerrotados>
-                                                                                                            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Tiempo>00:00</Tiempo>
-                                                                                                          
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </personaje>
-                                                    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <personaje>
-                                                                                                        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Nombre>Jugador3</Nombre>
-                                                                                                        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <EnemigosDerrotados>3</EnemigosDerrotados>
-                                                                                                        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Tiempo>00:10</Tiempo>
-                                                                                                      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </personaje>
-                                                  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <personaje>
-                                                                                                    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Nombre>Jugador4</Nombre>
-                                                                                                    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <EnemigosDerrotados>3</EnemigosDerrotados>
-                                                                                                    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Tiempo>00:04</Tiempo>
-                                                                                                  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </personaje>
-                                                
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <personaje>
-                                                                                                
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Nombre>Jugador5</Nombre>
-                                                                                                
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <EnemigosDerrotados>0</EnemigosDerrotados>
-                                                                                                
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Tiempo>00:00</Tiempo>
-                                                                                              
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </personaje>
-                                              
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <personaje>
-                                                                                            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Nombre>Jugador6</Nombre>
-                                                                                            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <EnemigosDerrotados>1</EnemigosDerrotados>
-                                                                                            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Tiempo>00:00</Tiempo>
-                                                                                          
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </personaje>
-                                            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <personaje>
-                                                                                        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Nombre>Jugador7</Nombre>
-                                                                                        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <EnemigosDerrotados>1</EnemigosDerrotados>
-                                                                                        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Tiempo>00:06</Tiempo>
-                                                                                      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </personaje>
-                                          
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <personaje>
-                                                                                    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Nombre>Jugador8</Nombre>
-                                                                                    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <EnemigosDerrotados>1</EnemigosDerrotados>
-                                                                                    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Tiempo>00:08</Tiempo>
-                                                                                  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </personaje>
-                                        
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <personaje>
-                                                                                
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Nombre>Jugador9</Nombre>
-                                                                                
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <EnemigosDerrotados>1</EnemigosDerrotados>
-                                                                                
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Tiempo>00:10</Tiempo>
-                                                                              
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </personaje>
                                       
   
   
@@ -1106,7 +18,6 @@
   
   
   
-  
   <personaje>
                                                                             
     
@@ -1126,7 +37,7 @@
     
     
     
-    <Nombre>Jugador10</Nombre>
+    <Nombre>Jugador1</Nombre>
                                                                             
     
     
@@ -1145,7 +56,7 @@
     
     
     
-    <EnemigosDerrotados>4</EnemigosDerrotados>
+    <EnemigosDerrotados>2</EnemigosDerrotados>
                                                                             
     
     
@@ -1164,7 +75,7 @@
     
     
     
-    <Tiempo>00:00</Tiempo>
+    <Tiempo>00:10</Tiempo>
                                                                           
   
   
@@ -1220,7 +131,7 @@
     
     
     
-    <Nombre>Jugador11</Nombre>
+    <Nombre>Jugador2</Nombre>
                                                                         
     
     
@@ -1238,7 +149,7 @@
     
     
     
-    <EnemigosDerrotados>9</EnemigosDerrotados>
+    <EnemigosDerrotados>18</EnemigosDerrotados>
                                                                         
     
     
@@ -1256,7 +167,7 @@
     
     
     
-    <Tiempo>00:14</Tiempo>
+    <Tiempo>00:00</Tiempo>
                                                                       
   
   
@@ -1309,7 +220,7 @@
     
     
     
-    <Nombre>Jugador12</Nombre>
+    <Nombre>Jugador3</Nombre>
                                                                     
     
     
@@ -1326,7 +237,7 @@
     
     
     
-    <EnemigosDerrotados>1</EnemigosDerrotados>
+    <EnemigosDerrotados>2</EnemigosDerrotados>
                                                                     
     
     
@@ -1343,7 +254,7 @@
     
     
     
-    <Tiempo>00:00</Tiempo>
+    <Tiempo>00:09</Tiempo>
                                                                   
   
   
@@ -1393,7 +304,7 @@
     
     
     
-    <Nombre>Jugador13</Nombre>
+    <Nombre>Jugador4</Nombre>
                                                                 
     
     
@@ -1409,7 +320,7 @@
     
     
     
-    <EnemigosDerrotados>1</EnemigosDerrotados>
+    <EnemigosDerrotados>24</EnemigosDerrotados>
                                                                 
     
     
@@ -1472,7 +383,7 @@
     
     
     
-    <Nombre>Jugador14</Nombre>
+    <Nombre>Jugador5</Nombre>
                                                             
     
     
@@ -1487,7 +398,7 @@
     
     
     
-    <EnemigosDerrotados>1</EnemigosDerrotados>
+    <EnemigosDerrotados>4</EnemigosDerrotados>
                                                             
     
     
@@ -1502,7 +413,7 @@
     
     
     
-    <Tiempo>00:04</Tiempo>
+    <Tiempo>00:10</Tiempo>
                                                           
   
   
@@ -1546,7 +457,7 @@
     
     
     
-    <Nombre>Jugador15</Nombre>
+    <Nombre>Jugador6</Nombre>
                                                         
     
     
@@ -1560,7 +471,7 @@
     
     
     
-    <EnemigosDerrotados>0</EnemigosDerrotados>
+    <EnemigosDerrotados>2</EnemigosDerrotados>
                                                         
     
     
@@ -1615,7 +526,7 @@
     
     
     
-    <Nombre>Jugador16</Nombre>
+    <Nombre>Jugador7</Nombre>
                                                     
     
     
@@ -1641,7 +552,7 @@
     
     
     
-    <Tiempo>00:00</Tiempo>
+    <Tiempo>00:07</Tiempo>
                                                   
   
   
@@ -1679,7 +590,7 @@
     
     
     
-    <Nombre>Jugador17</Nombre>
+    <Nombre>Jugador8</Nombre>
                                                 
     
     
@@ -1691,7 +602,7 @@
     
     
     
-    <EnemigosDerrotados>1</EnemigosDerrotados>
+    <EnemigosDerrotados>0</EnemigosDerrotados>
                                                 
     
     
@@ -1703,7 +614,7 @@
     
     
     
-    <Tiempo>00:00</Tiempo>
+    <Tiempo>00:13</Tiempo>
                                               
   
   
@@ -1738,7 +649,7 @@
     
     
     
-    <Nombre>Jugador18</Nombre>
+    <Nombre>Jugador9</Nombre>
                                             
     
     
@@ -1749,7 +660,7 @@
     
     
     
-    <EnemigosDerrotados>1</EnemigosDerrotados>
+    <EnemigosDerrotados>8</EnemigosDerrotados>
                                             
     
     
@@ -1760,7 +671,7 @@
     
     
     
-    <Tiempo>00:00</Tiempo>
+    <Tiempo>00:22</Tiempo>
                                           
   
   
@@ -1792,7 +703,7 @@
     
     
     
-    <Nombre>Jugador19</Nombre>
+    <Nombre>Jugador10</Nombre>
                                         
     
     
@@ -1802,7 +713,7 @@
     
     
     
-    <EnemigosDerrotados>1</EnemigosDerrotados>
+    <EnemigosDerrotados>15</EnemigosDerrotados>
                                         
     
     
@@ -1812,7 +723,7 @@
     
     
     
-    <Tiempo>00:00</Tiempo>
+    <Tiempo>00:32</Tiempo>
                                       
   
   
@@ -1841,7 +752,7 @@
     
     
     
-    <Nombre>Jugador20</Nombre>
+    <Nombre>Jugador11</Nombre>
                                     
     
     
@@ -1850,7 +761,7 @@
     
     
     
-    <EnemigosDerrotados>1</EnemigosDerrotados>
+    <EnemigosDerrotados>18</EnemigosDerrotados>
                                     
     
     
@@ -1885,7 +796,7 @@
     
     
     
-    <Nombre>Jugador21</Nombre>
+    <Nombre>Jugador12</Nombre>
                                 
     
     
@@ -1893,7 +804,7 @@
     
     
     
-    <EnemigosDerrotados>0</EnemigosDerrotados>
+    <EnemigosDerrotados>4</EnemigosDerrotados>
                                 
     
     
@@ -1901,7 +812,7 @@
     
     
     
-    <Tiempo>00:00</Tiempo>
+    <Tiempo>00:10</Tiempo>
                               
   
   
@@ -1924,21 +835,21 @@
     
     
     
-    <Nombre>Jugador22</Nombre>
+    <Nombre>Jugador13</Nombre>
                             
     
     
     
     
     
-    <EnemigosDerrotados>3</EnemigosDerrotados>
+    <EnemigosDerrotados>0</EnemigosDerrotados>
                             
     
     
     
     
     
-    <Tiempo>00:00</Tiempo>
+    <Tiempo>00:14</Tiempo>
                           
   
   
@@ -1958,7 +869,7 @@
     
     
     
-    <Nombre>Jugador23</Nombre>
+    <Nombre>Jugador14</Nombre>
                         
     
     
@@ -1970,7 +881,7 @@
     
     
     
-    <Tiempo>00:00</Tiempo>
+    <Tiempo>00:14</Tiempo>
                       
   
   
@@ -1987,17 +898,17 @@
     
     
     
-    <Nombre>Jugador24</Nombre>
+    <Nombre>Jugador15</Nombre>
                     
     
     
     
-    <EnemigosDerrotados>3</EnemigosDerrotados>
+    <EnemigosDerrotados>0</EnemigosDerrotados>
                     
     
     
     
-    <Tiempo>00:06</Tiempo>
+    <Tiempo>00:14</Tiempo>
                   
   
   
@@ -2011,15 +922,15 @@
                 
     
     
-    <Nombre>Jugador25</Nombre>
+    <Nombre>Jugador16</Nombre>
                 
     
     
-    <EnemigosDerrotados>1</EnemigosDerrotados>
+    <EnemigosDerrotados>0</EnemigosDerrotados>
                 
     
     
-    <Tiempo>00:00</Tiempo>
+    <Tiempo>00:14</Tiempo>
               
   
   
@@ -2030,13 +941,13 @@
   <personaje>
             
     
-    <Nombre>Jugador26</Nombre>
+    <Nombre>Jugador17</Nombre>
             
     
     <EnemigosDerrotados>1</EnemigosDerrotados>
             
     
-    <Tiempo>00:05</Tiempo>
+    <Tiempo>00:07</Tiempo>
           
   
   </personaje>
@@ -2044,17 +955,17 @@
   
   <personaje>
         
-    <Nombre>Jugador27</Nombre>
+    <Nombre>Jugador18</Nombre>
         
-    <EnemigosDerrotados>1</EnemigosDerrotados>
+    <EnemigosDerrotados>2</EnemigosDerrotados>
         
-    <Tiempo>00:04</Tiempo>
+    <Tiempo>00:11</Tiempo>
       
   </personaje>
   
   <personaje>
-    <Nombre>Jugador28</Nombre>
-    <EnemigosDerrotados>0</EnemigosDerrotados>
-    <Tiempo>00:00</Tiempo>
+    <Nombre>Jugador19</Nombre>
+    <EnemigosDerrotados>2</EnemigosDerrotados>
+    <Tiempo>00:12</Tiempo>
   </personaje>
 </personajes>

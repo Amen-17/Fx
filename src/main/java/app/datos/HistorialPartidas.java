@@ -13,12 +13,16 @@ import java.util.*;
 
 public class HistorialPartidas {
 
-    private List<Partida> partidas = new ArrayList<>();
+    private static List<Partida> partidas = new ArrayList<>();
 
     public HistorialPartidas(File archivoXml) throws Exception {
         cargarPartidasDesdeXML(archivoXml);
     }
 
+    /**
+     * cargar los nuevos datos de la partid en el xml
+     * @throws Exception
+     */
     public HistorialPartidas() throws Exception {
         File archivo = Util.getArchivoPartidas();
 
@@ -39,6 +43,11 @@ public class HistorialPartidas {
         cargarPartidasDesdeXML(archivo);
     }
 
+    /**
+     * carga el contenido del xml, creando el nombre del jugador
+     * @param archivo
+     * @throws Exception
+     */
     private void cargarPartidasDesdeXML(File archivo) throws Exception {
         if (!archivo.exists()) {
             System.out.println("Archivo XML no encontrado.");
@@ -62,12 +71,20 @@ public class HistorialPartidas {
         }
     }
 
+    /**
+     * regresa los datos recopilados en la ultima partida
+     * @return
+     */
     public Partida ultimaPartida() {
         if (partidas.isEmpty()) return null;
         return partidas.get(partidas.size() - 1);
     }
 
-    public List<Partida> top3Partidas() {
+    /**
+     * regresará las 3 mejores partidas
+     * @return
+     */
+    public static List<Partida> top3Partidas() {
         return partidas.stream().sorted(Comparator.comparingInt(Partida::getPuntuacion).reversed()).limit(3).toList();
     }
 }

@@ -18,6 +18,7 @@ public class Puntuacion extends Text {
        setFill(Color.ALICEBLUE);
     }
 
+
     public static void subirPuntuacion(int punto){
         puntuacion += punto; //Sumamos los puntos
         p.setText(String.valueOf(puntuacion)); //Actualizamos los puntos que se muestran por pantalla
@@ -36,5 +37,13 @@ public class Puntuacion extends Text {
 
     public static int getPuntos() {
         return puntuacion;
+    }
+
+    /**
+     * devuelve los puntos a 0
+     */
+    public static void resetearPuntuacion(){
+        puntuacion=0;
+        p.setText(String.valueOf(puntuacion));
     }
 }

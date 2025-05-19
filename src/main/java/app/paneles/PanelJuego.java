@@ -18,6 +18,10 @@ public class PanelJuego extends Pane {
         montarEscena();
     }
 
+    /**
+     * si no esta crado el panel lo crea, y si ya existe lo devuelve
+     * @return
+     */
     public static PanelJuego getPanelJuego(){
         if (panel == null){
             panel = new PanelJuego();
@@ -25,6 +29,9 @@ public class PanelJuego extends Pane {
         return panel;
     }
 
+    /**
+     * monta la escena
+     */
     private void montarEscena() {
         Util.pintarSuelo(this,1200,800);
         getChildren().add(pj); //Para añadir el personaje al panel
