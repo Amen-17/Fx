@@ -37,9 +37,9 @@ public class XML {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc;
-
         Element raiz;
 
+        // carga o crea el documento
         if (archivo.exists()) {
             doc = builder.parse(archivo);
             raiz = (Element) doc.getDocumentElement();
@@ -68,11 +68,15 @@ public class XML {
 
         raiz.appendChild(personaje);
 
+        //guerda el documento
+        HistorialPartidas.limpiarEspaciosEnBlanco(doc);
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
         transformer.transform(new DOMSource(doc), new StreamResult(archivo));
+
         System.out.println("Partida guardada en: " + archivo.getAbsolutePath());
     }
+
 }
 

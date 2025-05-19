@@ -87,4 +87,17 @@ public class HistorialPartidas {
     public static List<Partida> top3Partidas() {
         return partidas.stream().sorted(Comparator.comparingInt(Partida::getPuntuacion).reversed()).limit(3).toList();
     }
+
+    public static void limpiarEspaciosEnBlanco(Node node) {
+        NodeList children = node.getChildNodes();
+        for (int i = 0; i < children.getLength(); i++) {
+            Node hijo = children.item(i);
+            if (hijo.getNodeType() == Node.TEXT_NODE && hijo.getTextContent().trim().isEmpty()) {
+                node.removeChild(hijo);
+                i--; // Ajusta el índice porque eliminaste un nodo
+            } else if (hijo.getNodeType() == Node.ELEMENT_NODE) {
+                limpiarEspaciosEnBlanco(hijo); // recursivo
+            }
+        }
+    }
 }
