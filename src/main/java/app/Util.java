@@ -50,9 +50,9 @@ public class Util {
 
     /**
      * utiliza las baldosaspara generar el suelo
-     * @param root
-     * @param ancho
-     * @param alto
+     * @param root rota donde estan las imagenes
+     * @param ancho el tamaño que tomarán
+     * @param alto el largo
      */
     public static void pintarSuelo(Pane root, double ancho, double alto) {
         ArrayList<Image> suelo = new ArrayList<>();

@@ -2,11 +2,17 @@ package app.paneles;
 
 import app.Util;
 import app.datos.HistorialPartidas;
+import app.datos.Partida;
 import app.personaje.Personaje;
 import app.personaje.Tiempo;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Menu extends Pane {
 
@@ -30,19 +36,7 @@ public class Menu extends Pane {
                     Escenas.getEscena().setPanelPri();
                     Util.iniciarJuego();
                     Personaje.getPers().rotacionRaton(Escenas.getEscena().getAct());
-
-                    //el tiempo no inicia bien aqui
-//                    Scene escenaJuego = new Scene(PanelPrincipal.getPanelPrincipal(), 1200, 800);
-//                    stage.setScene(escenaJuego);
-//                    Personaje pj = Personaje.getPers();
-//                    pj.rotacionRaton(escenaJuego);
-//                    GestorEnemigos.comenzar();
-
-//                    Tiempo t = Tiempo.getTiempoTotal(); //si sustituyo esto por Tiempo.detenercronometro me peta
-//                    t.iniciarCronometro();
-
-                        Tiempo.detenerCronometro();
-                        Tiempo.getTiempoTotal();
+                    Tiempo.getTiempoTotal();
                 }
         );
 
@@ -50,10 +44,33 @@ public class Menu extends Pane {
 
         botones.add(botonIniciar);
         botones.add(botonSalir);
-
         getChildren().addAll(botones);
-
         HistorialPartidas.top3Partidas();
+
+        try {
+            List<Partida> top3 = HistorialPartidas.top3Partidas(); // o new HistorialPartidas().top3Partidas()
+
+            VBox topBox = new VBox(10); // 10px de espacio entre elementos
+            topBox.setLayoutX(450);
+            topBox.setLayoutY(100);
+
+            Label titulo = new Label("TOP 3 PARTIDAS");
+            titulo.setTextFill(Color.WHITE);
+            titulo.setFont(new Font("Arial", 20));
+            topBox.getChildren().add(titulo);
+
+            for (Partida partida : top3) {
+                Label label = new Label(partida.toString());
+                label.setTextFill(Color.WHITE);
+                label.setFont(new Font("Arial", 16));
+                topBox.getChildren().add(label);
+            }
+
+            getChildren().add(topBox);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }
 }

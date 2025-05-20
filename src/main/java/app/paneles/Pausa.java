@@ -9,7 +9,7 @@ public class Pausa extends Pane {
 
     /**
      * detiene el juego
-     * @param stage
+     * @param stage el scenario
      */
     public Pausa(Stage stage){
         setPrefSize(1200, 800);

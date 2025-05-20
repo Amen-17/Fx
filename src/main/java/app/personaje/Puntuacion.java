@@ -18,7 +18,10 @@ public class Puntuacion extends Text {
        setFill(Color.ALICEBLUE);
     }
 
-
+    /**
+     * aumenta la puntuacion
+     * @param punto variable entera que indica los puntos que posee
+     */
     public static void subirPuntuacion(int punto){
         puntuacion += punto; //Sumamos los puntos
         p.setText(String.valueOf(puntuacion)); //Actualizamos los puntos que se muestran por pantalla

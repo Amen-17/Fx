@@ -21,7 +21,7 @@ public class HistorialPartidas {
 
     /**
      * cargar los nuevos datos de la partid en el xml
-     * @throws Exception
+     * @throws Exception para tratar excepciones
      */
     public HistorialPartidas() throws Exception {
         File archivo = Util.getArchivoPartidas();
@@ -45,14 +45,15 @@ public class HistorialPartidas {
 
     /**
      * carga el contenido del xml, creando el nombre del jugador
-     * @param archivo
-     * @throws Exception
+     * @param archivo es el nomnbre de la variable donde guardamos el archivo xml
+     * @throws Exception normalmente saltan muchos errores al tratar cn el xml por ello las excepciones
      */
     private void cargarPartidasDesdeXML(File archivo) throws Exception {
         if (!archivo.exists()) {
             System.out.println("Archivo XML no encontrado.");
             return;
         }
+        partidas.clear();
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -68,6 +69,7 @@ public class HistorialPartidas {
             String tiempo = personaje.getElementsByTagName("Tiempo").item(0).getTextContent();
 
             partidas.add(new Partida(nombre, puntos, tiempo));
+
         }
     }
 
@@ -85,9 +87,22 @@ public class HistorialPartidas {
      * @return
      */
     public static List<Partida> top3Partidas() {
-        return partidas.stream().sorted(Comparator.comparingInt(Partida::getPuntuacion).reversed()).limit(3).toList();
+        try {
+            HistorialPartidas historial = new HistorialPartidas();
+            return historial.partidas.stream()
+                    .sorted(Comparator.comparingInt(Partida::getPuntuacion).reversed())
+                    .limit(3)
+                    .toList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return List.of(); // retorna lista vacía si falla
+        }
     }
 
+    /**
+     * ayuda a eliminar lineas en blanco que se generan cuando añado un nuevo nodo
+     * @param node son los nodos, en nuestro caso personaje
+     */
     public static void limpiarEspaciosEnBlanco(Node node) {
         NodeList children = node.getChildNodes();
         for (int i = 0; i < children.getLength(); i++) {

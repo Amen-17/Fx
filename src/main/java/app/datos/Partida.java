@@ -9,9 +9,9 @@ public class Partida { //me ayuda a leer el xml
 
     /**
      * ayuda a guardar los datos en el xml
-     * @param nombre
-     * @param puntuacion
-     * @param tiempo
+     * @param nombre nombre del personaje jugador1, 2 ....
+     * @param puntuacion los punts
+     * @param tiempo el tiempo que ha sobrevivido
      */
     public Partida(String nombre, int puntuacion, String tiempo) {
         this.nombre = nombre;

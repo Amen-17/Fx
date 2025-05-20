@@ -20,8 +20,8 @@ public class XML {
 
     /**
      * datos que tendrá el documento
-     * @param puntuacion
-     * @param tiempo
+     * @param puntuacion guarda la puntuacion
+     * @param tiempo guarda el tiempo
      */
     public XML(Puntuacion puntuacion, Tiempo tiempo) {
         this.puntuacion = puntuacion;

@@ -36,7 +36,7 @@ public class PanelInf extends HBox {
     }
 
     /**
-     *
+     *generea las escenas ajustand los tamaños
      */
     private void montarEscena() {
         Region espacio = new Region();
