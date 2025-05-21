@@ -31,8 +31,19 @@ public class Partida { //me ayuda a leer el xml
         return tiempo;
     }
 
+
+
+
+
     @Override
     public String toString() {
-        return "Nombre: " + getNombre() + ", Puntos: " + getPuntuacion() + ", Tiempo: " + Tiempo.getTiempoMinSeg();
+        return "Nombre: " +
+                getNombre() +
+                ", Puntos: " +
+                getPuntuacion() +
+                ", Tiempo: " +
+                Tiempo.getTiempoMinSeg();
     }
+
+
 }

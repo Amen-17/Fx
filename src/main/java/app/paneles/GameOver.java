@@ -25,16 +25,19 @@ public class GameOver extends Pane {
         setStyle("-fx-background-color: linear-gradient(to bottom, #000000, #4b0000);");
         gameOver = this;
 
+        // Detener el cronómetro y obtener puntuación y tiempo
         Tiempo tiempo = Tiempo.detenerCronometro();
         Puntuacion puntuacion = Puntuacion.getPuntuacion();
         tiempo.getTiemTot();
+
+        // Guardar partida en XML
         try {
             XML xml = new XML(puntuacion, tiempo);
             xml.guardarPartida();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        try {
+        try {  // Mostrar resumen de la última partida
             HistorialPartidas historial = new HistorialPartidas();
             Partida ultima = historial.ultimaPartida();
             if (ultima != null) {
@@ -55,7 +58,7 @@ public class GameOver extends Pane {
             Personaje.getPers().rotacionRaton(Escenas.getEscena().getAct());
             Tiempo.iniciarCronometro();
             Puntuacion.resetearPuntuacion();
-            PanelInf.getPanelinf();
+            PanelInf.getPanelinf(); // solo llamas para asegurar inicialización
         });
 
         Boton botonSalir = new Boton("Salir", 450, 430, stage::close);

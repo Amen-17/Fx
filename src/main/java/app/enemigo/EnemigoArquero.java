@@ -10,16 +10,17 @@ import javafx.scene.paint.ImagePattern;
 
 public class EnemigoArquero extends Enemigo {
 
-    private static Bounds posEnArc;
-    private static long tDisp = 800_000_000;
+    private static Bounds posEnArc; // Guarda la posición del arquero en la escena.
+    private static long tDisp = 800_000_000;  // Tiempo mínimo entre disparos (en nanosegundos).
     private long tAnter; //Al ser diferentes objetos no puede ser static ya que cada uno necesita su variable separada.
 
     /**
      * Constructor básico de la clase EnemigoArquero
+     *  Coloca el enemigo en la parte superior con coordenadas X aleatorias.
      */
     public EnemigoArquero() {
-        super(Math.random() * 1150, -50, 50, 50, 1, 2);
-        atacar();
+        super(Math.random() * 1150, -50, 50, 50, 1, 2);  // Posición aleatoria arriba, tamaño 50x50, vida 1, velocidad 2.
+        atacar(); // Inicia su comportamiento de ataque.
         setFill(Color.BLUE);
     }
 
@@ -33,10 +34,12 @@ public class EnemigoArquero extends Enemigo {
         super(poX, poY, 50, 50, 1, 3);
         atacar();
         imagen = new Image("file:src/main/java/app/imgs/EneArq.png");
-        setFill(new ImagePattern(imagen));
+        setFill(new ImagePattern(imagen));// Aplica la imagen como textura.
     }
 
     /**
+     * Lógica principal de comportamiento del arquero.
+     * Si el personaje se acerca demasiado, huye. Si está a una distancia media, dispara. Si está lejos, se acerca.
      * Comprueba la distancia a la que se encuentra según el personaje y si está cerca dispara, si no se acerca.
      */
     @Override
@@ -46,7 +49,8 @@ public class EnemigoArquero extends Enemigo {
             public void handle(long l) { //La variable 'l' almacena cuantos nanosegundos han pasado.
                 posEnArc = EnemigoArquero.this.localToScene(EnemigoArquero.this.getBoundsInLocal()); //Almacena su nueva posición
                 EnemigoArquero.super.rotar(); //Hace que el Enemigo esté constantemente rotando según la posición del personaje.
-                if (comprobarCerca(getPosc(), Personaje.getPos())) { // Si el personaje se acerca mucho el enemigo huye un poco
+                // Si el personaje se acerca mucho el enemigo huye un poco
+                if (comprobarCerca(getPosc(), Personaje.getPos())) {
                     if (Personaje.getPos().getCenterX() > getPosc().getCenterX()) {
                         setLayoutX(getLayoutX() - 1);
                     } else {
@@ -57,21 +61,22 @@ public class EnemigoArquero extends Enemigo {
                     } else {
                         setLayoutY(getLayoutY() + 1);
                     }
-                } else {
+                } else {     // Si está a una distancia razonable (menos de 180px), dispara.
                     if (comprobarDistancia(getPosc(), Personaje.getPos())) {
                         if (l - tAnter > tDisp) { //Si los nanosegundos totales - los nanosegundos del último disparo son mayores que la variable tDisp.
                             if (getPosc().getMinX() > 0 || getPosc().getMinY() > 0)
-                                disparar();
+                                disparar();  // Dispara una flecha.
                             tAnter = l; // Almacena los nanosegundos actuales en el momento del disparo.
                         }
                     } else {
+                        // Si está lejos, se comporta como enemigo común y se acerca.
                             EnemigoArquero.super.atacar();
                     }
                 }
-                EnemigoArquero.super.comprobarMuerte();
+                EnemigoArquero.super.comprobarMuerte(); // Comprueba si debe morir.
             }
         };
-        t.start();
+        t.start();  // Comienza el ciclo del AnimationTimer.
     }
 
     /**
@@ -119,6 +124,9 @@ public class EnemigoArquero extends Enemigo {
         return false;
     }
 
+    /**
+     * Devuelve la posición del arquero en la escena (para colisiones u otros cálculos).
+     */
     public Bounds getPosc() {
         return posEnArc;
     }

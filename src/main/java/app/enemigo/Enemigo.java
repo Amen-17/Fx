@@ -8,14 +8,15 @@ import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 
+// Clase base para todos los enemigos, hereda de Rectangle para tener forma y posición.
 public abstract class Enemigo extends Rectangle {
 
-    protected PanelJuego panel;
+    protected PanelJuego panel;  // Referencia al panel principal donde se dibuja el enemigo.
     protected int vida;
     protected double velocidad;
-    protected AnimationTimer t;
+    protected AnimationTimer t; // Temporizador de animaciones (para moverse o atacar).
     protected Image imagen;
-    protected static double dificultad = 0;
+    protected static double dificultad = 0; // Variable compartida por todos los enemigos que aumenta progresivamente.
     protected int puntuacion;
 
     /**
@@ -29,11 +30,11 @@ public abstract class Enemigo extends Rectangle {
      * La dificultad aumenta según la generación de enemigos hasta llegar a 1.
      */
     public Enemigo(double poX, double poY, double tamX, double tamY, int vida, double velocidad) {
-        super(poX, poY, tamX, tamY);
+        super(poX, poY, tamX, tamY); // Llama al constructor de Rectangle con posición y tamaño.
         this.vida = vida;
         this.velocidad = velocidad;
-        panel = PanelJuego.getPanelJuego();
-        if (dificultad <= 1) dificultad += 0.01;
+        panel = PanelJuego.getPanelJuego();  // Obtiene el panel de juego para poder añadir o quitar el enemigo.
+        if (dificultad <= 1) dificultad += 0.01;  // Aumenta la dificultad global progresivamente hasta un máximo de 1.
     }
 
     /**
@@ -60,52 +61,64 @@ public abstract class Enemigo extends Rectangle {
      */
     // Mejorar todas las variables que he hecho
     protected void atacar() {
-        Bounds posEneAct = localToScene(getBoundsInLocal());
+        Bounds posEneAct = localToScene(getBoundsInLocal()); // Obtiene su posición actual en la escena.
 
+        // Calcula diferencias de posición respecto al personaje.
         double deltaX = Personaje.getPos().getCenterX() - posEneAct.getCenterX();
         double deltaY = Personaje.getPos().getCenterY() - posEneAct.getCenterY();
 
+        // Distancia total a recorrer.
         double distancia = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
 
+        // Calcula el movimiento proporcional para mantener la velocidad.
         double movX = (deltaX / distancia) * velocidad;
         double movY = (deltaY / distancia) * velocidad;
 
+        // Actualiza posición.
         setLayoutX(getLayoutX() + movX);
         setLayoutY(getLayoutY() + movY);
 
-        comprobarMuerte();
+        comprobarMuerte(); // Verifica si ha alcanzado al personaje.
     }
 
     /**
      * Rota su eje en base a la posición del Personaje
      */
     protected void rotar(){
-        Bounds posEneAct = localToScene(getBoundsInLocal());
+        Bounds posEneAct = localToScene(getBoundsInLocal()); // Posición del enemigo.
 
+        // Diferencias de posición.
         double deltaX = Personaje.getPos().getCenterX() - posEneAct.getCenterX();
         double deltaY = Personaje.getPos().getCenterY() - posEneAct.getCenterY();
 
+        // Calcula ángulo en radianes y lo pasa a grados.
         double anguloRadianes = Math.atan2(deltaY, deltaX);
         double anguloGrados = Math.toDegrees(anguloRadianes);
 
-        setRotate(anguloGrados);
+        setRotate(anguloGrados); // Aplica la rotación.
     }
 
+    /**
+     * Devuelve el AnimationTimer del enemigo.
+     */
     public AnimationTimer getAnimation() {
         return t;
     }
 
     public int getVida() {
         return vida;
-    }
+    } //Devuelve la vida actual del enemigo.
 
     public void reducirVida() {
         vida--;
-    }
+    } //Resta 1 punto de vida al enemigo.
 
     public static double getDiff(){
         return dificultad;
     }
 
+    /**
+     * Metodo abstracto que obliga a las subclases a devolver su posición (para colisiones, disparos, etc.).
+     */
     public abstract Bounds getPosc();
 }

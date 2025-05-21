@@ -1,30 +1,45 @@
 package app.paneles;
 
 import app.personaje.Tiempo;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
 public class Pausa extends Pane {
 
+
     /**
-     * detiene el juego
-     * @param stage el scenario
+     * Constructor del panel de pausa. Muestra el título y dos botones: continuar y salir.
+     * @param stage La ventana principal del juego (no se usa directamente aquí, pero podría usarse para más funcionalidades).
      */
-    public Pausa(Stage stage){
+    public Pausa(Stage stage) {
+        // Establece el tamaño del panel
         setPrefSize(1200, 800);
-        setStyle("-fx-background-color: rgba(0,0,0,0.02);");
 
-        Boton continuar = new Boton("Continuar", 450, 300, () ->{
-        Escenas.getEscena().setPanelPri();
-        Tiempo.iniciarCronometro();
+        // Fondo semitransparente para indicar que el juego está pausado
+        setStyle("-fx-background-color: rgba(0,0,0,0.05);");
+
+        // Título de la pantalla de pausa
+        Label titulo = new Label("PAUSA");
+        titulo.setStyle("-fx-font-size: 48px; -fx-text-fill: #e04040;");
+        titulo.setLayoutX(500);
+        titulo.setLayoutY(150);
+
+        // Botón para continuar el juego
+        Boton continuar = new Boton("Continuar", 450, 250, () -> {
+            Escenas.getEscena().setPanelPri(); // Vuelve al panel principal del juego
         });
 
-        Boton nombreBoton = new Boton("no se", 450, 350, () ->{
-            Escenas.getEscena().setPanelPri();
+        // Botón para salir del juego
+        Boton salir = new Boton("Salir", 450, 350, () -> {
+            Escenas.getStage().close(); // Cierra completamente el juego
+            // Alternativa: volver al menú principal si lo tuvieras implementado
+            // Escenas.getEscena().setMenuPrincipal();
         });
+
+        // Añade todos los elementos al panel de pausa
+        getChildren().addAll(titulo, continuar, salir);
     }
-
-
 
 }

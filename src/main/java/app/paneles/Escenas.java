@@ -7,30 +7,41 @@ import javafx.stage.Stage;
 
 public class Escenas extends Pane {
 
-    private Stage stage;
-    private Scene panelPri;
-    private Scene gameOver;
+    private Stage stage;  // La ventana principal donde se muestran las escenas
+    private Scene panelPri;  // Escena del juego principal (donde se juega)
+    private Scene gameOver;   // Escena que se muestra cuando el juego termina
     private Scene menu;
-    private Scene act;
-    private static Escenas e;
+    private Scene act;  // Escena activa actualmente (la que se está mostrando)
+    private static Escenas e;  // Instancia singleton de esta clase (única para toda la aplicación)
     private Scene pausa;
 
     /**
      * Constructor del gestor de Scenes.
+     * Constructor privado (patrón singleton)
+     * Se inicializan las escenas que no cambian (menú y pausa),
+     * y se obtiene la ventana principal (Stage).
      */
     private Escenas() {
-        stage = Util.getStage();
-        menu = new Scene(new Menu(stage), 1200, 800);
+        stage = Util.getStage();   // Obtener la ventana principal del programa
+        menu = new Scene(new Menu(stage), 1200, 800);  // Crear escena menú (con tamaño fijo)
         pausa = new Scene(new Pausa(stage), 1200, 800);
     }
 
+
+
+    public static Stage getStage() {
+        return getEscena().stage;
+    }
+
     /**
-     * Crea y enseña la escena principal.
+     * Configura y muestra la escena principal de juego.
+     * Crea la escena con el panel principal, la asigna al stage,
+     * y actualiza el campo de escena activa.
      */
     public void setPanelPri() {
         panelPri = new Scene(new PanelPrincipal(), 1200, 800);
-        stage.setScene(panelPri);
-        act = panelPri;
+        stage.setScene(panelPri);  // Cambia la escena mostrada en la ventana
+        act = panelPri;      // Actualiza la escena activa
     }
 
     /**
@@ -43,12 +54,13 @@ public class Escenas extends Pane {
 
     /**
      * Crea y enseña la escena de game over y para el juego.
+     *  Además, detiene el juego a través de Util.
      */
     public void setGameOver() {
         gameOver = new Scene(new GameOver(stage), 1200, 800);
         stage.setScene(gameOver);
         act = gameOver;
-        Util.pararJuego();
+        Util.pararJuego(); // Lógica para detener timers, animaciones, etc.
     }
 
     /**
@@ -56,9 +68,12 @@ public class Escenas extends Pane {
      */
     public void setPausa() {
         stage.setScene(pausa);
-        act = panelPri;
+        act = pausa;
     }
 
+    /**
+     * Devuelve la escena actualmente activa.
+     */
     public Scene getAct() {
         return act;
     }
@@ -74,4 +89,13 @@ public class Escenas extends Pane {
     }
 
 
+    /**
+     * Metodo sin implementar para cambiar la raíz de la escena de pausa.
+     * Probablemente debería cambiar el contenido mostrado dentro de la escena de pausa,
+     * por ejemplo, para actualizar la interfaz de pausa.
+     */
+    public void setRoot(Pausa pausa) {
+        // Pendiente de implementar.
+        this.pausa.setRoot(pausa);
+    }
 }

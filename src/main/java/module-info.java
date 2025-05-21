@@ -13,6 +13,7 @@ module com.example.fx {
     requires java.logging;
     requires java.desktop;
     requires annotations;
+    requires javafx.media;
 
     opens app to javafx.fxml;
     exports app to javafx.graphics;

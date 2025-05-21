@@ -18,7 +18,7 @@ public class PanelInf extends HBox {
      * genera como se veria ese panel
      */
     private PanelInf(){
-        p=Puntuacion.getPuntuacion();
+        p=Puntuacion.getPuntuacion(); // Obtiene instancia única de puntuación
         setStyle("-fx-background-color: GRAY");//Le ponemos un color mediante un comando de CSS
         vidas = Vida.getVidas();
         montarEscena();
@@ -36,18 +36,19 @@ public class PanelInf extends HBox {
     }
 
     /**
-     *generea las escenas ajustand los tamaños
+     * Monta la escena del panel inferior, añadiendo las vidas, un espacio flexible y la puntuación.
      */
     private void montarEscena() {
-        Region espacio = new Region();
-        HBox.setHgrow(espacio, Priority.ALWAYS);
+        Region espacio = new Region(); // Región vacía para separar elementos
+        HBox.setHgrow(espacio, Priority.ALWAYS);  // El espacio crecerá y empujará elementos
 
+        // Añade todas las imágenes de vida al panel
         for (Vida act:vidas){
             getChildren().add(act);
         }
-        getChildren().add(espacio);
-        getChildren().add(p);
-        setAlignment(Pos.CENTER);
+        getChildren().add(espacio);  // Añade espacio flexible entre vidas y puntuación
+        getChildren().add(p);         // Añade el objeto puntuación (texto)
+        setAlignment(Pos.CENTER);     // Centra verticalmente los elementos dentro del HBox
     }
 
 }

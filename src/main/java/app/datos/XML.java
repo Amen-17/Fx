@@ -29,53 +29,60 @@ public class XML {
     }
 
     /**
-     * almecena los datos de las partidas
+     * almecena los datos de las partidas en un archivo XML
      * @throws Exception
      */
     public void guardarPartida() throws Exception {
-        File archivo = Util.getArchivoPartidas();
+        File archivo = Util.getArchivoPartidas();  // Archivo donde se guardan las partidas
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc;
         Element raiz;
 
-        // carga o crea el documento
+        // Si el archivo ya existe, lo carga; si no, lo crea desde cero
         if (archivo.exists()) {
-            doc = builder.parse(archivo);
-            raiz = (Element) doc.getDocumentElement();
+            doc = builder.parse(archivo);  // Carga el XML existente
+            raiz = (Element) doc.getDocumentElement(); // Obtiene el nodo raíz <personajes>
         } else {
-            doc = builder.newDocument();
-            raiz = doc.createElement("personajes");
-            doc.appendChild(raiz);
+            doc = builder.newDocument(); // Crea un nuevo documento XML
+            raiz = doc.createElement("personajes"); // Nodo raíz
+            doc.appendChild(raiz); ; // Añade el nodo raíz al documento
         }
+
+        // Crea un nuevo nodo de personaje con nombre único (Jugador1, Jugador2, etc.)
 
         int numJugador = doc.getElementsByTagName("personaje").getLength() + 1;
         String nombre = "Jugador" + numJugador;
 
-        Element personaje = doc.createElement("personaje");
+        Element personaje = doc.createElement("personaje"); // Nodo principal del personaje
 
+        // Nodo <Nombre>
         Element nomb = doc.createElement("Nombre");
         nomb.appendChild(doc.createTextNode(nombre));
         personaje.appendChild(nomb);
 
+        // Nodo <EnemigosDerrotados>
         Element punt = doc.createElement("EnemigosDerrotados");
         punt.appendChild(doc.createTextNode(String.valueOf(puntuacion.getPuntos())));
         personaje.appendChild(punt);
 
+        // Nodo <Tiempo>
         Element tiemp = doc.createElement("Tiempo");
         tiemp.appendChild(doc.createTextNode(tiempo.getTiempoMinSeg()));
         personaje.appendChild(tiemp);
 
-        raiz.appendChild(personaje);
+        raiz.appendChild(personaje);  // Añade el nodo del personaje al nodo raíz
 
-        //guerda el documento
+        // Limpia espacios en blanco (opcional, si lo implementa HistorialPartidas)
         HistorialPartidas.limpiarEspaciosEnBlanco(doc);
+
+        // Configura y ejecuta el guardado del archivo XML con formato bonito
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes"); // Indentación activada
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
         transformer.transform(new DOMSource(doc), new StreamResult(archivo));
 
-        System.out.println("Partida guardada en: " + archivo.getAbsolutePath());
+        System.out.println("Partida guardada en: " + archivo.getAbsolutePath()); // Mensaje de confirmación
     }
 
 }

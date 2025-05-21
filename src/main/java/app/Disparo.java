@@ -12,100 +12,121 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 
+/**
+ * Clase que representa un disparo en el juego. Puede ser disparado por el jugador o por un enemigo.
+ * Hereda de Rectangle para usar su forma y posición en pantalla.
+ */
+
+
 public class Disparo extends Rectangle {
-    private PanelJuego panel;
-    private AnimationTimer t;
-    private boolean enPantalla;
-    private static int nDisparos=0;
-    private double dirX,dirY;
-    private int velocidad;
-    boolean propietario; //True si es del personaje, false si son de enemigos.
+    private PanelJuego panel;              // Referencia al panel donde se dibuja el disparo
+    private AnimationTimer t;              // Timer que controla el movimiento del disparo
+    private boolean enPantalla;            // Indica si el disparo está dentro del área visible
+    private static int nDisparos = 0;      // Contador de disparos en pantalla del jugador
+    private double dirX, dirY;             // Dirección del disparo (calculada en X e Y)
+    private int velocidad;                 // Velocidad del disparo
+    boolean propietario;                   // True si es del jugador, false si es de un enemigo
 
     /**
-     * crea la accion de disparar, su diseño
-     * @param poX
-     * @param poY
-     * @param angulo
-     * @param prop
+     * Constructor del disparo.
+     * @param poX Coordenada X desde donde se lanza
+     * @param poY Coordenada Y desde donde se lanza
+     * @param angulo Ángulo de rotación para dirigir el disparo
+     * @param prop Indica si el disparo pertenece al jugador (true) o a un enemigo (false)
      */
-    public Disparo(double poX, double poY, double angulo,boolean prop){
-        super(poX-2,poY-15,2,15);
-        setRotate(angulo+90); //Hay que añadirle 90º debido a que el angulo 0º es hacia la derecha.
+    public Disparo(double poX, double poY, double angulo, boolean prop) {
+        super(poX - 2, poY - 15, 2, 15); // Posiciona el disparo (con ajustes) y le da dimensiones
+        setRotate(angulo + 90); // Corrige el ángulo, porque 0º en JavaFX apunta a la derecha
         panel = PanelJuego.getPanelJuego();
         propietario = prop;
         enPantalla = true;
-        setFill(Color.YELLOW);
-        trayectoria();
-        if (prop) nDisparos++; //Solo contamos los disparos si son del Personaje
+        setFill(Color.YELLOW); // Color del disparo
+        trayectoria(); // Inicia el movimiento del disparo
+        if (prop) nDisparos++; // Solo se cuentan los disparos del jugador
         velocidad = 4;
+        // Calcula la dirección del disparo usando trigonometría
         dirX = Math.cos(Math.toRadians(angulo)) * velocidad;
         dirY = Math.sin(Math.toRadians(angulo)) * velocidad;
     }
 
     /**
-     * Primero de todo, no se asusten.
-     * Este método lo único que hace es:
-     * > Mover la bala
-     * > Comprobar si la bala choca contra cualquier enemigo almacenado en la lista.
-     * > Si se sale la bala de la pantalla la elimina
+     * Controla el movimiento del disparo en pantalla y las colisiones.
+     * Se ejecuta constantemente mientras el disparo esté activo.
      */
-    private void trayectoria(){
+    private void trayectoria() {
         t = new AnimationTimer() {
             @Override
             public void handle(long l) {
-                setLayoutY(getLayoutY()+dirY);
-                setLayoutX(getLayoutX()+dirX);
-                //Si sale por cualquiera de los 4 bordes.
+                // Mueve el disparo en cada frame
+                setLayoutY(getLayoutY() + dirY);
+                setLayoutX(getLayoutX() + dirX);
+
+                // Si el disparo sale de la pantalla, se marca como no visible
                 if (getBoundsInParent().getMaxY() <= 0 || getBoundsInParent().getMinY() >= panel.getHeight() ||
                         getBoundsInParent().getMaxX() <= 0 || getBoundsInParent().getMinX() >= panel.getWidth()) {
                     enPantalla = false;
                 }
 
+                // Obtiene la lista de enemigos actuales
                 ArrayList<Enemigo> lista = GestorEnemigos.getLista();
 
-                for (int cont=0; cont < lista.size();cont++){
+                // Recorre todos los enemigos y comprueba colisiones
+                for (int cont = 0; cont < lista.size(); cont++) {
                     Enemigo e = lista.get(cont);
-                    if (getBoundsInParent().intersects(e.getBoundsInParent()) && propietario){ //Si las colisiones chocan y la bala es lanzada por el usuario
-                        enPantalla = false;
-                        e.reducirVida();
+                    // Solo colisiona si es un disparo del jugador
+                    if (getBoundsInParent().intersects(e.getBoundsInParent()) && propietario) {
+                        enPantalla = false;      // Marca el disparo como fuera de pantalla (desaparecerá)
+                        e.reducirVida();         // Quita vida al enemigo
                         System.out.println("Has dado un disparo");
-                        if (e.getVida() <=0){ //Si el enemigo se queda sin vida se para su animación, se borra del panel y del array list
-                            e.getAnimation().stop();
-                            panel.getChildren().remove(e);
-                            lista.remove(e);
-                            Puntuacion.subirPuntuacion(1);
+
+                        if (e.getVida() <= 0) {  // Si el enemigo muere:
+                            e.getAnimation().stop();           // Detiene su movimiento
+                            panel.getChildren().remove(e);     // Lo elimina del panel
+                            lista.remove(e);                   // Lo elimina de la lista de enemigos
+                            Puntuacion.subirPuntuacion(1);     // Aumenta puntuación del jugador
                         }
                     }
                 }
-                if (!enPantalla){ //si sale de la pantalla se para la animacion y borra el disparo
-                    t.stop();
-                    nDisparos--;
-                    panel.getChildren().remove(Disparo.this); //Para especificar que queremos borrar el objeto, no el AnimationTimer.
+
+                // Si el disparo ya no está activo, lo eliminamos
+                if (!enPantalla) {
+                    t.stop();                            // Para el movimiento
+                    nDisparos--;                         // Reduce el contador
+                    panel.getChildren().remove(Disparo.this); // Elimina el disparo del panel
                 }
+
+                // Verifica si un disparo enemigo ha alcanzado al jugador
                 comprobarColision();
             }
         };
-        t.start();
+        t.start(); // Inicia la animación
     }
-    //Comprueba que la bala enemiga impacta en mí, pero no se bien como implementarla ni donde.
 
     /**
-     * comprueba si las balas chocaron con el personaje
+     * Comprueba si un disparo enemigo ha colisionado con el personaje.
+     * Si es así, elimina el disparo, detiene su animación y reduce una vida.
      */
-    public void comprobarColision(){
-        if (getBoundsInParent().intersects(Personaje.getPos()) && !propietario){
+    public void comprobarColision() {
+        // Solo verifica si el disparo NO es del jugador
+        if (getBoundsInParent().intersects(Personaje.getPos()) && !propietario) {
             this.getAnimation().stop();
             System.out.println("Te ha dado una bala");
             panel.getChildren().remove(Disparo.this);
-            Vida.reducirVida();
+            Vida.reducirVida(); // Reduce vida del jugador
         }
     }
 
+    /**
+     * Devuelve el número de disparos del jugador activos actualmente en pantalla.
+     */
     public static int getnDisparos() {
         return nDisparos;
     }
 
-    public AnimationTimer getAnimation(){
+    /**
+     * Devuelve la animación del disparo, útil para detenerla desde fuera.
+     */
+    public AnimationTimer getAnimation() {
         return t;
     }
 }

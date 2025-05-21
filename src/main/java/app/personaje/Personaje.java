@@ -15,11 +15,11 @@ import javafx.scene.shape.Rectangle;
 public class Personaje extends Rectangle {
     private PanelJuego panel;
     private static Personaje pers;
-    private boolean movIzq, movDch, movArr, movAbj;
-    private static Bounds posPj;
+    private boolean movIzq, movDch, movArr, movAbj;  // Booleans para movimiento en cada dirección
+    private static Bounds posPj;   // Guarda la posición del personaje en la escena
     private int cargador;
     private String nombre;
-    private static AnimationTimer t;
+    private static AnimationTimer t;  // Temporizador para mover al personaje
     private Image img = new Image("file:src/main/java/app/imgs/PosPj.png");
 
 
@@ -30,15 +30,16 @@ public class Personaje extends Rectangle {
         super(550, 350, 70, 70); //Posicion X, Posicion Y, Tamaño X, Tamaño Y
         pers = this;
         panel = PanelJuego.getPanelJuego(); //Para enlazar el jugador con el panel
-        moverPj();
-        ponerEnAccion();
-        cargador = 5;
+        moverPj(); // Inicia movimiento
+        ponerEnAccion();  // Captura teclas y ratón
+        cargador = 5; // Máximo de disparos activos
         setFill(new ImagePattern(img));
     }
 
     /**
      * Devuelve el personaje, si es null lo crea antes.
      * @return El personaje
+     * Evita que se creen múltiples personajes. Solo existe uno durante la partida.
      */
     public static Personaje getPers(){
         if (pers == null){
@@ -52,12 +53,12 @@ public class Personaje extends Rectangle {
      */
     public void reiniciarPJ(){
         Vida.reiniciarVidas();
-        setRotate(90);
-        setLayoutY(0);
+        setRotate(90);   // Pone dirección inicial
+        setLayoutY(0);   // Coloca en la esquina superior
         setLayoutX(0);
-        getPers();
-        getAni().start();
-        movAbj = false;
+        getPers();  // Se asegura de que exista
+        getAni().start();    // Inicia el movimiento de nuevo
+        movAbj = false; // detiene el movimiento
         movArr = false;
         movDch = false;
         movIzq = false;
@@ -74,10 +75,11 @@ public class Personaje extends Rectangle {
         sceneProperty().addListener((observar, antigua, nueva) //Pone el foco a esta clase
                 -> {
             if (nueva != null) { //no se como funciona
-                requestFocus();
+                requestFocus(); // Captura foco para recibir eventos
             }
         });
-        this.setOnKeyPressed(e -> {
+        this.setOnKeyPressed(e -> {  // Marca los flags según la tecla pulsada
+                                    // Incluye movimiento y pausa
             if (e.getCode() == KeyCode.A || e.getCode() == KeyCode.LEFT) {
                 movIzq = true;
             }
@@ -94,7 +96,8 @@ public class Personaje extends Rectangle {
                 Escenas.getEscena().setPausa();
             }
         });
-        this.setOnKeyReleased(e -> {
+        this.setOnKeyReleased(e -> {    // Desactiva movimiento cuando se suelta tecla
+                                       // También lanza disparo al soltar barra espaciadora
             if (e.getCode() == KeyCode.A || e.getCode() == KeyCode.LEFT) {
                 movIzq = false;
             }
@@ -119,6 +122,9 @@ public class Personaje extends Rectangle {
      */
     public void rotacionRaton(Scene scene) {
         scene.setOnMouseMoved(e -> {
+            // Calcula ángulo entre el personaje y el ratón
+            // y gira el personaje en esa dirección
+
             double personajeX = posPj.getMinX() + posPj.getWidth() / 2;
             double personajeY = posPj.getMinY() + posPj.getHeight() / 2;
 
@@ -134,7 +140,7 @@ public class Personaje extends Rectangle {
         });
         scene.setOnMouseClicked(e -> {
             if (e.getButton() == MouseButton.PRIMARY) {
-                disparar();
+                disparar();  // Lanza disparo al hacer clic izquierdo
                 System.out.println("Pium");
             }
         });
@@ -144,6 +150,9 @@ public class Personaje extends Rectangle {
      * Dispara una bala en la misma dirección en la que mira el Personaje, está limitado.
      */
     private void disparar(){
+        // Calcula posición de disparo basada en ángulo
+        // Crea una nueva bala (Disparo) y la añade al panel
+
         if (Disparo.getnDisparos() < cargador){ //Limitamos el numero de disparos según el cargador.
             //Angulo actual
             double angulo = getRotate();
@@ -163,6 +172,8 @@ public class Personaje extends Rectangle {
      * Mueve el personaje según las teclas que se han pulsado y si está dentro de los limites del panel
      */
     private void movimiento() {
+        // Mueve el personaje en la dirección indicada
+        // Solo si no se sale del panel
         if (movIzq && getBoundsInParent().getMinX() > 0) {
             setLayoutX(getLayoutX() - 3);
         }
@@ -178,24 +189,24 @@ public class Personaje extends Rectangle {
     }
 
     /**
-     * Llama al método de movimiento() y actualiza su variable con su posición actualizada.
+     * Llama al metodo de movimiento() y actualiza su variable con su posición actualizada.
      */
     private void moverPj() {
         t = new AnimationTimer() { //Para
             @Override
             public void handle(long l) {
-                movimiento();
-                posPj = Personaje.this.localToScene(Personaje.this.getBoundsInLocal());
+                movimiento(); // Aplica movimiento según teclas pulsadas
+                posPj = Personaje.this.localToScene(Personaje.this.getBoundsInLocal()); // Guarda posición actual
             }
         };
         t.start(); // Siempre que haga un AnimationTimer he de empezarlo, si no no hace caso.
     }
 
     public static AnimationTimer getAni(){
-        return t;
+        return t; // Devuelve el temporizador, por si hace falta pararlo o reiniciarlo
     }
 
     public static Bounds getPos(){
-        return posPj;
+        return posPj; // Devuelve la posición actual del personaje
     }
 }

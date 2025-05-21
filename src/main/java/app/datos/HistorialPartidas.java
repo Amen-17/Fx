@@ -15,17 +15,19 @@ public class HistorialPartidas {
 
     private static List<Partida> partidas = new ArrayList<>();
 
+    // Constructor que carga las partidas desde un archivo XML externo
     public HistorialPartidas(File archivoXml) throws Exception {
         cargarPartidasDesdeXML(archivoXml);
     }
 
     /**
      * cargar los nuevos datos de la partid en el xml
-     * @throws Exception para tratar excepciones
+     * @throws Exception
      */
     public HistorialPartidas() throws Exception {
         File archivo = Util.getArchivoPartidas();
 
+        // Si no existe el archivo, lo crea con la raíz <personajes>
         if (!archivo.exists()) {
             // con esto si por alguna razon no existe lo creo
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -40,20 +42,20 @@ public class HistorialPartidas {
             transformer.transform(new DOMSource(doc), new StreamResult(archivo));
         }
 
+        // Carga el contenido del XML (todas las partidas)
         cargarPartidasDesdeXML(archivo);
     }
 
     /**
      * carga el contenido del xml, creando el nombre del jugador
-     * @param archivo es el nomnbre de la variable donde guardamos el archivo xml
-     * @throws Exception normalmente saltan muchos errores al tratar cn el xml por ello las excepciones
+     * @param archivo
+     * @throws Exception
      */
     private void cargarPartidasDesdeXML(File archivo) throws Exception {
         if (!archivo.exists()) {
             System.out.println("Archivo XML no encontrado.");
             return;
         }
-        partidas.clear();
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -61,6 +63,7 @@ public class HistorialPartidas {
 
         NodeList lista = doc.getElementsByTagName("personaje");
 
+        // Recorre todos los nodos <personaje> y crea objetos Partida
         for (int i = 0; i < lista.getLength(); i++) {
             Element personaje = (Element) lista.item(i);
 
@@ -69,7 +72,6 @@ public class HistorialPartidas {
             String tiempo = personaje.getElementsByTagName("Tiempo").item(0).getTextContent();
 
             partidas.add(new Partida(nombre, puntos, tiempo));
-
         }
     }
 
@@ -87,21 +89,13 @@ public class HistorialPartidas {
      * @return
      */
     public static List<Partida> top3Partidas() {
-        try {
-            HistorialPartidas historial = new HistorialPartidas();
-            return historial.partidas.stream()
-                    .sorted(Comparator.comparingInt(Partida::getPuntuacion).reversed())
-                    .limit(3)
-                    .toList();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return List.of(); // retorna lista vacía si falla
-        }
+        return partidas.stream().sorted(Comparator.comparingInt(Partida::getPuntuacion).reversed()).limit(3).toList();
     }
 
     /**
-     * ayuda a eliminar lineas en blanco que se generan cuando añado un nuevo nodo
-     * @param node son los nodos, en nuestro caso personaje
+     * Limpia los espacios en blanco dentro de los nodos del XML
+     * Muy útil para evitar nodos vacíos por indentación al guardar
+     * @param node Nodo raíz a limpiar
      */
     public static void limpiarEspaciosEnBlanco(Node node) {
         NodeList children = node.getChildNodes();
