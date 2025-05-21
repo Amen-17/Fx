@@ -57,6 +57,8 @@ public class HistorialPartidas {
             return;
         }
 
+        partidas.clear();
+
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc = builder.parse(archivo);
@@ -88,8 +90,18 @@ public class HistorialPartidas {
      * regresará las 3 mejores partidas
      * @return
      */
+
     public static List<Partida> top3Partidas() {
-        return partidas.stream().sorted(Comparator.comparingInt(Partida::getPuntuacion).reversed()).limit(3).toList();
+        try {
+            HistorialPartidas historial = new HistorialPartidas();
+            return historial.partidas.stream()
+                    .sorted(Comparator.comparingInt(Partida::getPuntuacion).reversed())
+                    .limit(3)
+                    .toList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return List.of(); // retorna lista vacía si falla
+        }
     }
 
     /**

@@ -2,6 +2,7 @@ package app.paneles;
 
 import app.Util;
 import app.datos.HistorialPartidas;
+import app.datos.Partida;
 import app.personaje.Personaje;
 import app.personaje.Tiempo;
 import javafx.geometry.Pos;
@@ -13,6 +14,8 @@ import java.awt.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import java.util.ArrayList;
+import java.util.List;
+
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import javafx.scene.paint.Stop;
@@ -75,6 +78,36 @@ public class Menu extends Pane {
         getChildren().addAll(botones);
         getChildren().add(menuVBox);
         HistorialPartidas.top3Partidas();
+
+        try {
+            List<Partida> top3 = HistorialPartidas.top3Partidas(); // o new HistorialPartidas().top3Partidas()
+
+
+            VBox topBox = new VBox(10); // 10px de espacio entre elementos
+            topBox.setLayoutX(450);
+            topBox.setLayoutY(100);
+
+
+            Label titulo2 = new Label("TOP 3 PARTIDAS");
+            titulo2.setTextFill(Color.WHITE);
+            titulo2.setFont(new Font("Arial", 20));
+            topBox.getChildren().add(titulo2);
+
+
+            for (Partida partida : top3) {
+                Label label = new Label(partida.toString());
+                label.setTextFill(Color.WHITE);
+                label.setFont(new Font("Arial", 16));
+                topBox.getChildren().add(label);
+            }
+
+
+            getChildren().add(topBox);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
 
     }
 }
